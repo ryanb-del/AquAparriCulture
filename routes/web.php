@@ -17,14 +17,14 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-// route for the landing page 
+// route for the landing page
 Route::get('/', function () {
     return view('welcome');
 });
 
 
 
-// redirects to specific dashboard based on the role of the user 
+// redirects to specific dashboard based on the role of the user
 Route::get('/dashboard', function () {
     if(Auth::user()->roles[0]->name == "admin")
     {
@@ -35,7 +35,7 @@ Route::get('/dashboard', function () {
     {
         // return Auth::user()->roles[0]->name;
         return view('users.dashboard');
-    } 
+    }
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
@@ -48,10 +48,10 @@ Route::get('/dashboard', function () {
 
 
 
-// admin routes here 
+// admin routes here
 Route::namespace('App\Http\Controllers\Admin')->prefix('admin')->name('admin.')->middleware('can:admin-access')->group(function(){
 
-    // add routes here for admin 
+    // add routes here for admin
     Route::resource('/users','UserController',['except' => ['create','store','destroy']]);
     Route::get('/userfeedbacks','UserController@userfeedback')->name('userfeedback');
 
@@ -61,8 +61,8 @@ Route::namespace('App\Http\Controllers\Admin')->prefix('admin')->name('admin.')-
 
     Route::resource('/farmers','CTRLfarmers');
 
-    
-   
+
+
 });
 
 
@@ -76,10 +76,10 @@ Route::namespace('App\Http\Controllers\Admin')->middleware('can:admin-access')->
 
 
 
-// users routes here 
+// users routes here
 Route::namespace('App\Http\Controllers\Users')->prefix('users')->name('users.')->middleware('can:user-access')->group(function(){
 
-    // add routes here for users 
+    // add routes here for users
     Route::resource('/feedback','CTRLFeedbacks',['except' => ['update','edit','destroy']]);
 
     Route::get('/myfeedbacks','CTRLFeedbacks@myfeedback')->name('myfeedback');
