@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\Agricultural\EquipmentController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -55,13 +56,24 @@ Route::namespace('App\Http\Controllers\Admin')->prefix('admin')->name('admin.')-
     Route::resource('/users','UserController',['except' => ['create','store','destroy']]);
     Route::get('/userfeedbacks','UserController@userfeedback')->name('userfeedback');
 
-    Route::resource('/fruits','CTRLfruits');
+    // Route::resource('/fruits','CTRLfruits');
 
-    Route::resource('/vegetable','CTRLvegetable');
+    // Route::resource('/vegetable','CTRLvegetable');
 
     Route::resource('/farmers','CTRLfarmers');
 
+    Route::resource('/equipment','EquipmentController');
 
+});
+
+
+Route::namespace('App\Http\Controllers\Admin\Agricultural')->prefix('admin')->name('admin.')->middleware('can:admin-access')->group(function(){
+
+    Route::resource('/equipments','EquipmentController');
+
+    Route::resource('/fruits','FruitsController');
+
+    Route::resource('/vegetables','VegetableController');
 
 });
 

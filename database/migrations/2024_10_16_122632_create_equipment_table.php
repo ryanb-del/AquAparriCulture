@@ -11,13 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('vegetables', function (Blueprint $table) {
-            $table->id();
-            $table->string('image')->nullable();
+        Schema::create('equipments', function (Blueprint $table) {
+            $table->id();// Link to common items table
             $table->string('name')->nullable();
-            $table->string('duration')->nullable();
             $table->text('description')->nullable();
+            $table->string('image')->nullable();
+
+            $table->enum('type', ['agricultural', 'aquatic'])->default('agricultural'); // Type of equipment
             $table->timestamps();
+
         });
     }
 
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('vegetables');
+        Schema::dropIfExists('equipments');
     }
 };

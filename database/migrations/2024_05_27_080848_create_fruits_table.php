@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('fruits', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->nullable();
+            $table->string('duration')->nullable();
+            $table->text('description')->nullable();
             $table->string('image')->nullable();
-            $table->string('fruits')->nullable();
-            $table->string('description')->nullable();
             $table->timestamps();
         });
     }

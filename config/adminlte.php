@@ -339,17 +339,17 @@ return [
         ],
         [
             'text' => 'Fruit Corners',
-            'url' => 'admin/fruits',
+            'url' => 'admin/fruits/create',
             'icon' => 'fas fa-fw fa-lock',
         ],
         [
             'text' => 'Vegetable Corners',
-            'url' => 'admin/vegetable',
+            'url' => 'admin/vegetables/create',
             'icon' => 'fas fa-fw fa-lock',
         ],
         [
-            'text' => 'Farmers Corners',
-            'url' => 'admin/farmers',
+            'text' => 'Equipments Corners',
+            'url' => 'admin/equipments/create',
             'icon' => 'fas fa-fw fa-lock',
         ],
         [
