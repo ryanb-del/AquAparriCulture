@@ -13,7 +13,8 @@ class EquipmentController extends Controller
      */
     public function index()
     {
-        //
+        $farmers = Equipment::all();
+        return view('admin.agricultural.equipments.index', compact('farmers'));
     }
 
     /**
@@ -21,9 +22,7 @@ class EquipmentController extends Controller
      */
     public function create()
     {
-        $farmers = Equipment::all();
-        return view('admin.agricultural.equipments.create')
-        ->with('farmers',$farmers);
+        return view('admin.agricultural.equipments.create');
     }
 
     /**
@@ -56,7 +55,7 @@ class EquipmentController extends Controller
             'type' => 'agricultural'
         ]);
 
-        return redirect()->back();
+        return redirect()->back()->with('success', 'saved successfully');
     }
 
     /**

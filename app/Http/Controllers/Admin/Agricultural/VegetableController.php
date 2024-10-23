@@ -13,7 +13,8 @@ class VegetableController extends Controller
      */
     public function index()
     {
-        //
+        $vegetable = Vegetables::all();
+        return view('admin.agricultural.vegetables.index', compact('vegetable'));
     }
 
     /**
@@ -21,9 +22,7 @@ class VegetableController extends Controller
      */
     public function create()
     {
-        $vegetable = Vegetables::all();
-        return view('admin.agricultural.vegetables.create')
-        ->with('vegetable',$vegetable);
+        return view('admin.agricultural.vegetables.create');
     }
 
     /**
@@ -50,7 +49,7 @@ class VegetableController extends Controller
             'description' => $request->description,
            // Save the image file name or null
         ]);
-        return redirect()->back();
+        return redirect()->back()->with('success', 'saved successfully');
     }
     /**
      * Display the specified resource.

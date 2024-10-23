@@ -1,7 +1,5 @@
 <x-app-layout>
     @can('admin-access')
-
-
         @section('content')
             <style>
                 .card-group {
@@ -49,77 +47,52 @@
 
 
                             <div class="row">
-                                <div class="col-sm-4">
-                                    <h1 class="text-center">Add Fruits</h1>
-
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <form action="{{ route('admin.fruits.store') }}" method="POST"
-                                                enctype="multipart/form-data">
-                                                @csrf
-
-                                                <label for="">Add Image</label>
-                                                <input type="file" class="form-control" name="image" accept="image/*"
-                                                    id="">
-
-                                                <label for="">Name of Fruit</label>
-                                                <input type="text" class="form-control" name="fruits" id="">
-
-                                                <label for="">Description</label>
-                                                <textarea name="description" class="form-control" id=""></textarea>
-
-                                                <input type="submit" class="btn btn-primary mt-3" value="Add fruits">
-
-                                            </form>
-                                        </div>
-                                    </div>
 
 
-                                </div>
-
-                                <div class="col-sm-7">
-                                    <h3 class="text-center">List of All fruits</h3>
+                                <div class="col">
+                                    <h3 class="text-center">List of All Vegetable</h3>
                                     <div class="row">
-                                        @foreach ($fruit as $fruits)
+                                        @foreach ($vegetable as $vegetables)
                                             <div class="col-2 mb-3 " style="width: 200px;">
                                                 <div class="card-group">
                                                     <div class="card p-0">
-                                                        <img src="{{ $fruits->image ? asset('list_of_fruits/' . $fruits->image) : asset('assets/img/offices/default.jpg') }}"
-                                                            class="card-img-top" alt="Image of {{ $fruits->fruits }}"
+                                                        <img src="{{ $vegetables->image ? asset('list_of_vegetables/' . $vegetables->image) : asset('assets/img/offices/default.jpg') }}"
+                                                            class="card-img-top" alt="Image of {{ $vegetables->vegies }}"
                                                             style="object-fit:cover;">
                                                         <div class="text-center mt-1">
-                                                            <h6 class="fw-semibold">{{ $fruits->fruits }}</h6>
+                                                            <h6 class="fw-semibold">{{ $vegetables->vegies }}</h6>
                                                         </div>
                                                         <button href="" class="btn btn-primary mt-2"
                                                             data-bs-toggle="modal">Edit</a>
                                                             <button href="#" class="btn btn-success"
                                                                 data-bs-toggle="modal"
-                                                                data-bs-target="#fruitsModal-{{ $fruits->id }}">Read More</a>
+                                                                data-bs-target="#vegetablesModal-{{ $vegetables->id }}">Read
+                                                                More</a>
                                                     </div>
                                                 </div>
                                             </div>
 
-
                                             <!-- Modal -->
-                                            <div class="modal fade" id="fruitsModal-{{ $fruits->id }}" tabindex="-1"
-                                                aria-labelledby="fruitsModalLabel-{{ $fruits->id }}" aria-hidden="true">
+                                            <div class="modal fade" id="vegetablesModal-{{ $vegetables->id }}" tabindex="-1"
+                                                aria-labelledby="vegetablesModalLabel-{{ $vegetables->id }}" aria-hidden="true">
                                                 <div class="modal-dialog modal-lg">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title" id="fruitsModalLabel-{{ $fruits->id }}">
-                                                                {{ $fruits->fruits }}</h5>
+                                                            <h5 class="modal-title"
+                                                                id="vegetablesModalLabel-{{ $vegetables->id }}">
+                                                                {{ $vegetables->vegetables }}</h5>
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                                 aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
                                                             <div class="row">
                                                                 <div class="col-6"> <img
-                                                                        src="{{ $fruits->image ? asset('list_of_fruits/' . $fruits->image) : asset('assets/img/offices/default.jpg') }}"
-                                                                        alt="Image of {{ $fruits->fruits }}">
+                                                                        src="{{ $vegetables->image ? asset('list_of_vegetables/' . $vegetables->image) : asset('assets/img/offices/default.jpg') }}"
+                                                                        alt="Image of {{ $vegetables->vegetables }}">
                                                                 </div>
                                                                 <div class="col-6">
                                                                     <h5>Description</h5>
-                                                                    <p class="mt-3">{{ $fruits->description }}</p>
+                                                                    <p class="mt-3">{{ $vegetables->description }}</p>
                                                                 </div>
                                                                 <!-- Add more farmer details here if needed -->
                                                             </div>

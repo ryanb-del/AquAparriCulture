@@ -335,76 +335,63 @@ return [
         [
             'text' => 'Feedback',
             'url' => 'admin/userfeedbacks',
-            'icon' => 'fas fa-fw fa-lock',
+            'icon' => 'fas fa-fw fa-comment',
         ],
+
+        ['header' => 'Agriculture'],
         [
             'text' => 'Fruit Corners',
-            'url' => 'admin/fruits/create',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-        [
-            'text' => 'Vegetable Corners',
-            'url' => 'admin/vegetables/create',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-        [
-            'text' => 'Equipments Corners',
-            'url' => 'admin/equipments/create',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-        [
-            'text' => 'multilevel',
-            'icon' => 'fas fa-fw fa-share',
+            'icon' => 'fas fa-fw fa-leaf',
             'submenu' => [
                 [
-                    'text' => 'level_one',
-                    'url' => '#',
+                    'text' => 'add',
+                    'url' => 'admin/fruits/create',
+                    'icon' => 'fas fa-fw fa-plus',
                 ],
+
                 [
-                    'text' => 'level_one',
-                    'url' => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url' => '#',
-                        ],
-                        [
-                            'text' => 'level_two',
-                            'url' => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url' => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url' => '#',
-                                ],
-                            ],
-                        ],
-                    ],
+                    'text' => 'view',
+                    'url' => 'admin/fruits',
+                    'icon' => 'fas fa-fw fa-book',
                 ],
-                [
-                    'text' => 'level_one',
-                    'url' => '#',
-                ],
+
             ],
         ],
-        ['header' => 'labels'],
+
         [
-            'text' => 'important',
-            'icon_color' => 'red',
-            'url' => '#',
+            'text' => 'Vegetable Corners',
+            'icon' => 'fas fa-fw fa-seedling',
+            'submenu' => [
+                [
+                    'text' => 'add',
+                    'url' => 'admin/vegetables/create',
+                    'icon' => 'fas fa-fw fa-plus',
+                ],
+                [
+                    'text' => 'view',
+                    'url' => 'admin/vegetables',
+                    'icon' => 'fas fa-fw fa-book',
+                ],
+
+            ],
         ],
+
         [
-            'text' => 'warning',
-            'icon_color' => 'yellow',
-            'url' => '#',
-        ],
-        [
-            'text' => 'information',
-            'icon_color' => 'cyan',
-            'url' => '#',
+            'text' => 'Equipments Corners',
+            'icon' => 'fas fa-fw fa-hammer',
+            'submenu' => [
+                [
+                    'text' => 'add',
+                    'url' => 'admin/equipments/create',
+                    'icon' => 'fas fa-fw fa-plus',
+                ],
+                [
+                    'text' => 'view',
+                    'url' => 'admin/equipments',
+                    'icon' => 'fas fa-fw fa-book',
+                ],
+
+            ],
         ],
     ],
 

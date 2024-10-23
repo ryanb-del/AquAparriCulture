@@ -13,7 +13,8 @@ class FruitsController extends Controller
      */
     public function index()
     {
-        //
+        $fruit = Fruits::all();
+        return view('admin.agricultural.fruits.index', compact('fruit'));
     }
 
     /**
@@ -21,9 +22,7 @@ class FruitsController extends Controller
      */
     public function create()
     {
-        $fruit = Fruits::all();
-        return view('admin.agricultural.fruits.create')
-        ->with('fruit',$fruit);
+        return view('admin.agricultural.fruits.create');
     }
 
     /**
@@ -58,7 +57,7 @@ class FruitsController extends Controller
            // Save the image file name or null
         ]);
 
-        return redirect()->back();
+        return redirect()->back()->with('success', 'saved successfully');
 
 
     }
