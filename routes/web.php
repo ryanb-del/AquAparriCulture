@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Auth;
 
 // route for the landing page
 Route::get('/', function () {
-    return view('welcome');
+    return view('users.index');
 });
 
 
@@ -31,11 +31,6 @@ Route::get('/dashboard', function () {
     {
        // return Auth::user()->roles[0]->name;
         return view('admin.dashboard');
-    }
-    else
-    {
-        // return Auth::user()->roles[0]->name;
-        return view('users.dashboard');
     }
 })->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -106,8 +101,19 @@ Route::namespace('App\Http\Controllers\Users')->prefix('users')->name('users.')-
 
 
 
+// guest routes here
+Route::prefix('guest')->group(function(){
+
+    route::view('/about', 'users.about');
+    route::view('/contact', 'users.contact');
+
+    route::view('/fruits', 'users.agriculture.fruits');
+    route::view('/equipments', 'users.agriculture.equipments');
+    route::view('/vegetables', 'users.agriculture.vegetables');
+});
 
 
 
 
 require __DIR__.'/auth.php';
+

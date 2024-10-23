@@ -2,7 +2,8 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider; 
+use App\Models\Equipment;
+use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 
 use App\Models\vegetables;
@@ -24,17 +25,17 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
               View::composer('*', function ($view) {
-                
-                $vegetable = vegetables::all(); 
-                $fruit = fruits::all(); 
-                $farmer = farmers::all(); 
+
+                $vegetable = vegetables::all();
+                $fruit = fruits::all();
+                $equipment = Equipment::all();
                 $view->with([
                     'vegetable' => $vegetable,
                     'fruit' => $fruit,
-                    'farmer' => $farmer,
+                    'equipment' => $equipment,
                 ]);
             });
 
-            
+
     }
 }
