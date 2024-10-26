@@ -57,10 +57,10 @@
                                                 <div class="card-group">
                                                     <div class="card p-0">
                                                         <img src="{{ $vegetables->image ? asset('list_of_vegetables/' . $vegetables->image) : asset('assets/img/offices/default.jpg') }}"
-                                                            class="card-img-top" alt="Image of {{ $vegetables->vegies }}"
+                                                            class="card-img-top" alt="Image of {{ $vegetables->name }}"
                                                             style="object-fit:cover;">
                                                         <div class="text-center mt-1">
-                                                            <h6 class="fw-semibold">{{ $vegetables->vegies }}</h6>
+                                                            <h6 class="fw-semibold">{{ $vegetables->name }}</h6>
                                                         </div>
                                                         <button href="" class="btn btn-primary mt-2"
                                                             data-bs-toggle="modal">Edit</a>
@@ -80,7 +80,7 @@
                                                         <div class="modal-header">
                                                             <h5 class="modal-title"
                                                                 id="vegetablesModalLabel-{{ $vegetables->id }}">
-                                                                {{ $vegetables->vegetables }}</h5>
+                                                                {{ $vegetables->name }}</h5>
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                                 aria-label="Close"></button>
                                                         </div>
@@ -88,7 +88,7 @@
                                                             <div class="row">
                                                                 <div class="col-6"> <img
                                                                         src="{{ $vegetables->image ? asset('list_of_vegetables/' . $vegetables->image) : asset('assets/img/offices/default.jpg') }}"
-                                                                        alt="Image of {{ $vegetables->vegetables }}">
+                                                                        alt="Image of {{ $vegetables->name }}">
                                                                 </div>
                                                                 <div class="col-6">
                                                                     <h5>Description</h5>

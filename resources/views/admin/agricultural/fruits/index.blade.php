@@ -58,10 +58,10 @@
                                                 <div class="card-group">
                                                     <div class="card p-0">
                                                         <img src="{{ $fruits->image ? asset('list_of_fruits/' . $fruits->image) : asset('assets/img/offices/default.jpg') }}"
-                                                            class="card-img-top" alt="Image of {{ $fruits->fruits }}"
+                                                            class="card-img-top" alt="Image of {{ $fruits->name }}"
                                                             style="object-fit:cover;">
                                                         <div class="text-center mt-1">
-                                                            <h6 class="fw-semibold">{{ $fruits->fruits }}</h6>
+                                                            <h6 class="fw-semibold">{{ $fruits->name }}</h6>
                                                         </div>
                                                         <button href="" class="btn btn-primary mt-2"
                                                             data-bs-toggle="modal">Edit</a>
@@ -80,7 +80,7 @@
                                                     <div class="modal-content">
                                                         <div class="modal-header">
                                                             <h5 class="modal-title" id="fruitsModalLabel-{{ $fruits->id }}">
-                                                                {{ $fruits->fruits }}</h5>
+                                                                {{ $fruits->name }}</h5>
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                                 aria-label="Close"></button>
                                                         </div>
@@ -88,7 +88,7 @@
                                                             <div class="row">
                                                                 <div class="col-6"> <img
                                                                         src="{{ $fruits->image ? asset('list_of_fruits/' . $fruits->image) : asset('assets/img/offices/default.jpg') }}"
-                                                                        alt="Image of {{ $fruits->fruits }}">
+                                                                        alt="Image of {{ $fruits->name }}">
                                                                 </div>
                                                                 <div class="col-6">
                                                                     <h5>Description</h5>

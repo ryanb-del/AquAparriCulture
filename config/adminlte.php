@@ -393,6 +393,44 @@ return [
 
             ],
         ],
+        ['header' => 'Aquatic'],
+        [
+            'text' => 'Fisheries',
+            'icon' => 'fas fa-fw fa-fish',
+            'submenu' => [
+                [
+                    'text' => 'add',
+                    'url' => 'admin/fisheries/create',
+                    'icon' => 'fas fa-fw fa-plus',
+                ],
+
+                [
+                    'text' => 'view',
+                    'url' => 'admin/fisheries',
+                    'icon' => 'fas fa-fw fa-book',
+                ],
+
+            ],
+        ],
+
+        [
+            'text' => 'Aquatic - Equipment',
+            'icon' => 'fas fa-fw fa-otter',
+            'submenu' => [
+                [
+                    'text' => 'add',
+                    'url' => 'admin/aquatic/create',
+                    'icon' => 'fas fa-fw fa-plus',
+                ],
+
+                [
+                    'text' => 'view',
+                    'url' => 'admin/aquatic',
+                    'icon' => 'fas fa-fw fa-book',
+                ],
+
+            ],
+        ],
     ],
 
     /*

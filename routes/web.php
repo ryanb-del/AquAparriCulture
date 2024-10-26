@@ -72,6 +72,15 @@ Route::namespace('App\Http\Controllers\Admin\Agricultural')->prefix('admin')->na
 
 });
 
+Route::namespace('App\Http\Controllers\Admin\Aquatic')->prefix('admin')->name('admin.')->middleware('can:admin-access')->group(function(){
+
+    Route::resource('/aquatic','AquaticEquipmentController');
+
+    Route::resource('/fisheries','FisheriesController');
+
+
+});
+
 
 Route::namespace('App\Http\Controllers\Admin')->middleware('can:admin-access')->group(function(){
     Route::get('/profile-edit', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -110,6 +119,11 @@ Route::prefix('guest')->group(function(){
     route::view('/fruits', 'users.agriculture.fruits');
     route::view('/equipments', 'users.agriculture.equipments');
     route::view('/vegetables', 'users.agriculture.vegetables');
+    route::view('/fisheries', 'users.aquatic.fisheries');
+    route::view('/aquapments', 'users.aquatic.equipments');
+
+
+
 });
 
 

@@ -19,6 +19,12 @@
             <li class="nav-item {{ request()->is('guest/equipments') ? 'active' : '' }}">
                 <a href="{{ url('guest/equipments') }}" class="nav-link">Equipments</a>
             </li>
+            <li class="nav-item {{ request()->is('guest/aquapments') ? 'active' : '' }}">
+                <a href="{{ url('guest/aquapments') }}" class="nav-link">Aqua-Equipments</a>
+            </li>
+            <li class="nav-item {{ request()->is('guest/fisheries') ? 'active' : '' }}">
+                <a href="{{ url('guest/fisheries') }}" class="nav-link">Fish</a>
+            </li>
             <li class="nav-item {{ request()->is('guest/about') ? 'active' : '' }}">
                 <a href="{{ url('guest/about') }}" class="nav-link">About</a>
             </li>

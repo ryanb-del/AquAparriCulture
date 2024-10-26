@@ -3,18 +3,18 @@
 namespace App\Http\Controllers\Admin\Aquatic;
 
 use App\Http\Controllers\Controller;
-use App\Models\Equipment;
+use App\Models\Fisheries;
 use Illuminate\Http\Request;
 
-class AquaticEquipmentController extends Controller
+class FisheriesController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $equipments = Equipment::where('type', 'aquatic')->get();
-        return view('admin.aquatic.equipments.index', compact('equipments'));
+        $fish = Fisheries::all();
+        return view('admin.aquatic.fisheries.index', compact('fish'));
     }
 
     /**
@@ -22,7 +22,7 @@ class AquaticEquipmentController extends Controller
      */
     public function create()
     {
-        return view('admin.aquatic.equipments.create');
+        return view('admin.aquatic.fisheries.create');
     }
 
     /**
@@ -42,21 +42,22 @@ class AquaticEquipmentController extends Controller
             // Create a unique name for the image
             $imageName = time() . '.' . $image->getClientOriginalExtension();
             // Move the image to the public/images directory
-            $image->move(public_path('list_of_equipment'), $imageName);
+            $image->move(public_path('list_of_fish'), $imageName);
         } else {
             $imageName = null; // Set to null if no image is uploaded
         }
 
         // Create a new barangay
-        Equipment::create([
+        Fisheries::create([
             'image' => $imageName,
             'name' => $request->name,
             'description' => $request->description,
-            'type' => 'aquatic'
+            'type' => $request->type,
         ]);
 
         return redirect()->back()->with('success', 'saved successfully');
     }
+
 
     /**
      * Display the specified resource.

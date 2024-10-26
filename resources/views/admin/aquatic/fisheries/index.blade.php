@@ -1,7 +1,5 @@
 <x-app-layout>
     @can('admin-access')
-
-
         @section('content')
             <style>
                 .card-group {
@@ -52,48 +50,53 @@
 
 
                                 <div class="col">
-                                    <h3 class="text-center">List of All Farmers Equipment</h3>
+                                    <h3 class="text-center">List of All Fish</h3>
                                     <div class="row">
-                                        @foreach ($farmers as $farmers)
+                                        @foreach ($fish as $data)
                                             <div class="col-2 mb-3 " style="width: 200px;">
                                                 <div class="card-group">
                                                     <div class="card p-0">
-                                                        <img src="{{ $farmers->image ? asset('list_of_equipment/' . $farmers->image) : asset('assets/img/offices/default.jpg') }}"
-                                                            class="card-img-top" alt="Image of {{ $farmers->name }}"
+                                                        <img src="{{ $data->image ? asset('list_of_fish/' . $data->image) : asset('assets/img/offices/default.jpg') }}"
+                                                            class="card-img-top" alt="Image of {{ $data->name }}"
                                                             style="object-fit:cover;">
                                                         <div class="text-center mt-1">
-                                                            <h6 class="fw-semibold">{{ $farmers->name }}</h6>
+                                                            <h6 class="fw-semibold">{{ $data->name }}</h6>
                                                         </div>
-
                                                         <button href="" class="btn btn-primary mt-2"
                                                             data-bs-toggle="modal">Edit</a>
-                                                            <button href="#" class="btn btn-success mt-2"
+                                                            <button href="#" class="btn btn-success"
                                                                 data-bs-toggle="modal"
-                                                                data-bs-target="#farmersModal-{{ $farmers->id }}">Read More</a>
+                                                                data-bs-target="#vegetablesModal-{{ $data->id }}">Read
+                                                                More</a>
                                                     </div>
                                                 </div>
                                             </div>
 
                                             <!-- Modal -->
-                                            <div class="modal fade" id="farmersModal-{{ $farmers->id }}" tabindex="-1"
-                                                aria-labelledby="farmersModalLabel-{{ $farmers->id }}" aria-hidden="true">
+                                            <div class="modal fade" id="vegetablesModal-{{ $data->id }}" tabindex="-1"
+                                                aria-labelledby="vegetablesModalLabel-{{ $data->id }}" aria-hidden="true">
                                                 <div class="modal-dialog modal-lg">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title" id="farmersModalLabel-{{ $farmers->id }}">
-                                                                {{ $farmers->name }}</h5>
+                                                            <h5 class="modal-title"
+                                                                id="vegetablesModalLabel-{{ $data->id }}">
+                                                                {{ $data->name }}</h5>
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                                 aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
                                                             <div class="row">
                                                                 <div class="col-6"> <img
-                                                                        src="{{ $farmers->image ? asset('list_of_equipment/' . $farmers->image) : asset('assets/img/offices/default.jpg') }}"
-                                                                        alt="Image of {{ $farmers->name }}">
+                                                                        src="{{ $data->image ? asset('list_of_fish/' . $data->image) : asset('assets/img/offices/default.jpg') }}"
+                                                                        alt="Image of {{ $data->name }}">
                                                                 </div>
                                                                 <div class="col-6">
                                                                     <h5>Description</h5>
-                                                                    <p class="mt-3">{{ $farmers->description }}</p>
+                                                                    <p class="mt-3">{{ $data->description }}</p>
+                                                                </div>
+                                                                <div class="col-6">
+                                                                    <h5>Type of Fish</h5>
+                                                                    <p class="mt-3">{{ $data->type }}</p>
                                                                 </div>
                                                                 <!-- Add more farmer details here if needed -->
                                                             </div>
