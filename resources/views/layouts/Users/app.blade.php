@@ -43,7 +43,7 @@
         }
 
         .navbar-brand {
-            color: #fff;
+            color: #ffff;
         }
 
         .nav-link {
