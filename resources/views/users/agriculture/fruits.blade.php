@@ -1,7 +1,9 @@
 @extends('layouts.Users.app')
 
 @section('content')
-    <div class="container">
+    @include('layouts.Users.navigation')
+
+    {{-- <div class="container">
         <div class="row">
             @foreach ($fruit as $fruits)
                 <div class="col-lg-4">
@@ -17,5 +19,12 @@
                 </div>
             @endforeach
         </div>
-    </div>
+    </div> --}}
+
+    <section id="features" class="hero">
+
+    </section>
+
+
+    </section><!-- /Why Us Section -->
 @endsection
