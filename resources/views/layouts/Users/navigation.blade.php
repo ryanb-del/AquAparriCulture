@@ -1,36 +1,32 @@
-<nav class="navbar navbar-expand-lg navbar-dark">
-    <a class="navbar-brand" href="#">AgricultureGuide</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
-        aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+<header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-    <div class=" navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item {{ request()->is('/') ? 'active' : '' }}">
-                <a href="{{ url('/') }}" class="nav-link">Home</a>
-            </li>
-            <li class="nav-item {{ request()->is('guest/fruits') ? 'active' : '' }}">
-                <a href="{{ url('guest/fruits') }}" class="nav-link">Fruits</a>
-            </li>
-            <li class="nav-item {{ request()->is('guest/vegetables') ? 'active' : '' }}">
-                <a href="{{ url('guest/vegetables') }}" class="nav-link">Vegetables</a>
-            </li>
-            <li class="nav-item {{ request()->is('guest/equipments') ? 'active' : '' }}">
-                <a href="{{ url('guest/equipments') }}" class="nav-link">Equipments</a>
-            </li>
-            <li class="nav-item {{ request()->is('guest/aquapments') ? 'active' : '' }}">
-                <a href="{{ url('guest/aquapments') }}" class="nav-link">Aqua-Equipments</a>
-            </li>
-            <li class="nav-item {{ request()->is('guest/fisheries') ? 'active' : '' }}">
-                <a href="{{ url('guest/fisheries') }}" class="nav-link">Fish</a>
-            </li>
-            <li class="nav-item {{ request()->is('guest/about') ? 'active' : '' }}">
-                <a href="{{ url('guest/about') }}" class="nav-link">About</a>
-            </li>
-            <li class="nav-item {{ request()->is('guest/contact') ? 'active' : '' }}">
-                <a href="{{ url('guest/contact') }}" class="nav-link">Contact</a>
-            </li>
-        </ul>
+        <a href="index.html" class="logo d-flex align-items-center">
+            <!-- Uncomment the line below if you also wish to use an image logo -->
+            <!-- <img src="assets/img/logo.png" alt=""> -->
+            <h1 class="sitename">AgriGuide</h1>
+        </a>
+
+        <nav id="navmenu" class="navmenu">
+            <ul>
+                <li><a href="{{ url('/') }}" class="{{ request()->is('/') ? 'active' : '' }}">Home<br></a></li>
+                <li><a href="{{ url('guest/fruits') }}" class="{{ request()->is('/') ? 'active' : '' }}">Fruits</a></li>
+                <li><a href="{{ url('guest/vegetables') }}"
+                        class="{{ request()->is('/') ? 'active' : '' }}">Vegetables</a></li>
+                <li> <a href="{{ url('guest/equipments') }}"
+                        class="{{ request()->is('/') ? 'active' : '' }}">Equipments</a></li>
+                <li> <a href="{{ url('guest/aquapments') }}"
+                        class="{{ request()->is('/') ? 'active' : '' }}">Aqua-Equipments</a></li>
+                <li> <a href="{{ url('guest/fisheries') }}" class="{{ request()->is('/') ? 'active' : '' }}">Fish</a>
+                </li>
+                <li> <a href="{{ url('guest/about') }}" class="{{ request()->is('/') ? 'active' : '' }}">About</a>
+                </li>
+                <li> <a href="{{ url('guest/contact') }}" class="{{ request()->is('/') ? 'active' : '' }}">Contact</a>
+                </li>
+            </ul>
+            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+
+
     </div>
-</nav>
+</header>
