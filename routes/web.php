@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\Agricultural\EquipmentController;
+use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -41,8 +42,10 @@ Route::get('/dashboard', function () {
 //     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
 //     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 // });
-
-
+// contact
+Route::get('/contact', [ContactController::class, 'showForm'])->name('contact.form');
+Route::post('/contact', [ContactController::class, 'handleFormSubmission'])->name('contact.submit');
+Route::get('/admin/messages/list', [ContactController::class, 'index'])->middleware('can:admin-access');
 
 // admin routes here
 Route::namespace('App\Http\Controllers\Admin')->prefix('admin')->name('admin.')->middleware('can:admin-access')->group(function(){
@@ -50,6 +53,7 @@ Route::namespace('App\Http\Controllers\Admin')->prefix('admin')->name('admin.')-
     // add routes here for admin
     Route::resource('/users','UserController',['except' => ['create','store','destroy']]);
     Route::get('/userfeedbacks','UserController@userfeedback')->name('userfeedback');
+
 
     // Route::resource('/fruits','CTRLfruits');
 
@@ -69,6 +73,7 @@ Route::namespace('App\Http\Controllers\Admin\Agricultural')->prefix('admin')->na
     Route::resource('/fruits','FruitsController');
 
     Route::resource('/vegetables','VegetableController');
+
 
 });
 

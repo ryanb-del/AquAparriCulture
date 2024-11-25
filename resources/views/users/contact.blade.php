@@ -2,6 +2,7 @@
 
 @section('title', 'Contact Us')
 
+
 @section('content')
     <section id="features" class="hero">
         <div class="container-fluid">
@@ -34,45 +35,62 @@
                     </div>
 
                     <div class="col-lg-6 mt-4 mt-lg-0">
-                        <div class="bg-agri p-4 rounded shadow"> <!-- Adjusted padding for a smaller design -->
+                        <div class="bg-agri p-4 rounded shadow">
                             <h3 class="text-center text-primary">Get In Touch</h3>
-                            <form>
-                                <div class="row mt-3"> <!-- Adjusted margin-top -->
+
+                            @if (session('success'))
+                                <div class="alert alert-success">{{ session('success') }}</div>
+                            @endif
+
+                            <form action="{{ route('contact.submit') }}" method="POST">
+                                @csrf
+                                <div class="row mt-3">
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label for="name" class="form-label">Full Name</label>
                                             <input type="text" class="form-control bg-white rounded-0 form-control-lg"
-                                                id="name" placeholder="Enter Name" required>
+                                                id="name" name="name" placeholder="Enter Name" required>
+                                            @error('name')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label for="mobile" class="form-label">Mobile Number</label>
                                             <input type="text" class="form-control bg-white rounded-0 form-control-lg"
-                                                id="mobile" placeholder="Enter Number" required>
+                                                id="mobile" name="mobile" placeholder="Enter Number" required>
+                                            @error('mobile')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row mt-3"> <!-- Adjusted margin-top -->
+                                <div class="row mt-3">
                                     <div class="col-md-12">
                                         <div class="mb-3">
                                             <label for="email" class="form-label">Email Address</label>
                                             <input type="email" class="form-control bg-white rounded-0 form-control-lg"
-                                                id="email" placeholder="Enter Email" required>
+                                                id="email" name="email" placeholder="Enter Email" required>
+                                            @error('email')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row mt-3"> <!-- Adjusted margin-top -->
+                                <div class="row mt-3">
                                     <div class="col-md-12">
                                         <div class="mb-3">
                                             <label for="message" class="form-label">Message</label>
-                                            <textarea class="form-control bg-white rounded-0 form-control-lg" id="message" rows="4"
+                                            <textarea class="form-control bg-white rounded-0 form-control-lg" id="message" name="message" rows="4"
                                                 placeholder="Type Message" required></textarea>
+                                            @error('message')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary py-2 px-4 mt-3">Send Message</button>
-                                <!-- Adjusted padding for button -->
                             </form>
                         </div>
                     </div>
@@ -80,6 +98,4 @@
             </div>
         </div>
     </section>
-
-
 @endsection

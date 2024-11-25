@@ -337,6 +337,11 @@ return [
             'url' => 'admin/userfeedbacks',
             'icon' => 'fas fa-fw fa-comment',
         ],
+        [
+            'text' => 'Messages',
+            'url' => '/admin/messages/list',
+            'icon' => 'fas fa-fw fa-comment',
+        ],
 
         ['header' => 'Agriculture'],
         [

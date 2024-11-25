@@ -7,11 +7,14 @@
                 <div class="row">
                     @foreach ($fish as $data)
                         <div class="col-lg-4">
-                            <div class="card">
-                                <img class="card-img-top"
-                                    src="{{ $data->image ? asset('list_of_fish/' . $data->image) : asset('assets/img/offices/default.jpg') }}"
-                                    alt="fish">
-                                <div class="card-body">
+                            <div class="card" style="border: 1px solid #ddd; border-radius: 8px; overflow: hidden;">
+                                <div style="width: 100%; position: relative; padding-top: 100%; overflow: hidden;">
+                                    <img class="card-img-top"
+                                        src="{{ $data->image ? asset('list_of_fish/' . $data->image) : asset('assets/img/offices/default.jpg') }}"
+                                        alt="fish"
+                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                                </div>
+                                <div class="card-body" style="padding: 15px; text-align: center;">
                                     <h5 class="card-title">FISH Corner</h5>
                                     <p class="card-text">All about fish are here.</p>
                                 </div>
