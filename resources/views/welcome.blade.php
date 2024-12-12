@@ -20,18 +20,19 @@
             padding: 20px 0;
             text-align: center;
         }
+        
     </style>
 
     <main class="container">
         <div class="row">
             <div class="col-lg-6">
-                <h2>Our Vision</h2>
+                <h2 >Our Vision</h2>
                 <p>To be the leading online platform for agricultural guidance, empowering farmers and
                     enthusiasts with knowledge and resources to cultivate sustainable and prosperous
                     agricultural practices.</p>
             </div>
             <div class="col-lg-6">
-                <h2>Our Mission</h2>
+                <h2 class="text-center">Our Mission</h2>
                 <p>Our mission is to provide comprehensive and reliable agricultural guidance through our
                     website,
                     offering a wealth of information, resources, and tools to support farmers and individuals
@@ -55,7 +56,7 @@
             <div class="row px-5">
                 <div class="col-lg-6">
                     <h1 class="text-primary text-uppercase">Contact Us</h1>
-                    <h2 class="fw-bolder">We are here <br> to Help</h2>
+                    <h2 class="fw-bolder">We Are Here <br> to Help You </h2>
                     <p></p>
                     <div class="d-flex align-items-center">
                         <div class="flex-shrink-0 align-self-centr pt-3">

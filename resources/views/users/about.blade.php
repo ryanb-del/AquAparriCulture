@@ -8,7 +8,16 @@
             <div class="container text-center">
                 <h1 class="display-4">About Us</h1>
                 <p class="lead">Learn more About Agriculture</p>
-
+                <br>
+                <br>
+                <br>
+                <div class="container-fluid">
+                    <div class="container text-center">
+                        <h1 class="display-4">What is aquAPARRIculture?</h1>
+                        <p class="lead">Aquaparriculture is a sustainable agricultural practice that integrates aquaculture (the farming of aquatic organisms like fish, shellfish, and algae) with terrestrial agriculture, creating a synergistic system. This innovative approach aims to optimize resource use, improve food security, and promote environmental sustainability by combining aquatic and agricultural production in a single ecosystem.</p>
+                        <br>
+                        <br>
+                        <br>
                 <main class="container">
                     <div class="row">
                         <div class="col-lg-6">
@@ -26,6 +35,8 @@
                                 a wealth of information, resources, and tools to support farmers and individuals interested
                                 in
                                 agriculture...</p>
+                                
+                              
                         </div>
                     </div>
                 </main>

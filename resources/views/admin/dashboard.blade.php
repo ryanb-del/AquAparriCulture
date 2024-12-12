@@ -46,17 +46,15 @@
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div class="bg-green overflow-hidden shadow-sm sm:rounded-lg">
                         <div class="p-6 text-gray-900">
-                            <a class="navbar-brand" href="#">WELLCOME ADMIN </a>
-                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-
+                           
                                 </ul>
                         </div>
                         </nav>
                         <div class="jumbotron jumbotron-fluid">
                             <div class="container text-center">
-                                <h1 class="display-4">Welcome to AgriGuide</h1>
-                                <p class="lead">Providing you the information you need</p>
+                                <h1 class="display-4 "style="color:black;">Welcome to aquAPARRIculture</h1>
+                                <p class="lead" style="color:black;"> "Agpapada iti pagbiagan, agpaay ti masakbayan"</p>
+                                <p class="lead" style="color:black;"> "Equalizing livelihoods, paving the way for the future."</p>   </p>
                             </div>
                         </div>
                         </header>

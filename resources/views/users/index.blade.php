@@ -30,8 +30,10 @@
                 <div class="col-xl-4">
                     <h1 data-aos="fade-up">Focus On What Matters</h1>
                     <blockquote data-aos="fade-up" data-aos-delay="100">
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis cum recusandae eum
-                            laboriosam voluptatem repudiandae odio, vel exercitationem officiis provident minima.
+                        <p> 
+                            Aquaparriculture is the practice of combining aquaculture (fish farming) with agriculture in water-based systems. 
+                        It promotes sustainable food production, enhances biodiversity, 
+                        and supports local economies by efficiently using water resources.
                         </p>
                     </blockquote>
                     <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
@@ -39,10 +41,10 @@
                             @auth
                                 <a href="{{ url('/dashboard') }}" class="btn-get-started">Dashboard</a>
                             @else
-                                <a href="{{ route('login') }}" class="btn-get-started me-2">Log in</a>
-                                @if (Route::has('register'))
+                                <a href="{{ route('login') }}" class="btn-get-started me-2">Get Started</a>
+                                {{-- @if (Route::has('register'))
                                     <a href="{{ route('register') }}" class="btn-get-started">Register</a>
-                                @endif
+                                @endif --}}
                             @endauth
                         @endif
                     </div>
@@ -90,48 +92,44 @@
 
                             <div class="swiper-slide">
                                 <div class="item">
-                                    <h3 class="mb-3">Let's grow your business together</h3>
-                                    <h4 class="mb-3">Optio reiciendis accusantium iusto architecto at quia minima
-                                        maiores quidem, dolorum.</h4>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, ipsam
-                                        perferendis asperiores explicabo vel tempore velit totam, natus nesciunt
-                                        accusantium dicta quod quibusdam ipsum maiores nobis non, eum. Ullam
-                                        reiciendis dignissimos laborum aut, magni voluptatem velit doloribus quas
-                                        sapiente optio.</p>
+                                    <h3 class="mb-3">aquAPARRIculture</h3>
+                                    <h4 class="mb-3">VISION</h4>
+                                    <p>To be a leading innovator in aquaparriculture, integrating sustainable aquatic farming practices with precision agriculture to ensure food security, protect aquatic ecosystems, and empower global communities..</p>
                                 </div>
                             </div><!-- End slide item -->
 
                             <div class="swiper-slide">
                                 <div class="item">
-                                    <h3 class="mb-3">Unde perspiciatis ut repellat dolorem</h3>
-                                    <h4 class="mb-3">Amet cumque nam sed voluptas doloribus iusto. Dolorem eos
-                                        aliquam quis.</h4>
-                                    <p>Dolorem quia fuga consectetur voluptatem. Earum consequatur nulla maxime
-                                        necessitatibus cum accusamus. Voluptatem dolorem ut numquam dolorum delectus
-                                        autem veritatis facilis. Et ea ut repellat ea. Facere est dolores fugiat
-                                        dolor.</p>
+                                    <h3 class="mb-3">aquaAPARRIculture</h3>
+                                    <h4 class="mb-3">MISSION</h4>
+                                    <p>Our mission is to develop and promote eco-friendly aquaparriculture methods that enhance productivity,
+                                         reduce environmental impact, and support the livelihoods of farmers.
+                                          By combining advanced technology, education, and research, we aim to establish a harmonious balance between aquaculture and agriculture, 
+                                          ensuring long-term environmental sustainability and economic resilience.</p>
                                 </div>
                             </div><!-- End slide item -->
 
                             <div class="swiper-slide">
                                 <div class="item">
-                                    <h3 class="mb-3">Aliquid non alias minus</h3>
-                                    <h4 class="mb-3">Necessitatibus voluptatibus explicabo dolores a vitae
-                                        voluptatum.</h4>
-                                    <p>Neque voluptates aut. Soluta aut perspiciatis porro deserunt. Voluptate ut
-                                        itaque velit. Aut consectetur voluptatem aspernatur sequi sit laborum.
-                                        Voluptas enim dolorum fugiat aut.</p>
+                                    <h3 class="mb-3">aquAPARRIculture</h3>
+                                    <h4 class="mb-3">GOALS</h4>
+                                    <p>1.Sustainability: Implement practices that minimize ecological footprints, ensuring the health of aquatic ecosystems and adjacent farmlands.</p>
+                                        <p>  2.Innovation: Develop and deploy cutting-edge technologies to optimize aquaparriculture processes and maximize yields.</p>
+                                            <p>3.Education and Training: Provide resources and training to stakeholders, empowering communities with the knowledge and skills needed to adopt aquaparriculture practices.</p>
+                                                <p>4.Global Reach: Expand the adoption of aquaparriculture in regions with food insecurity, offering sustainable solutions tailored to local environments.</p>
+                                                    <p>5.Collaboration: Foster partnerships with governments, NGOs, and the private sector to support research, funding, and policy-making efforts.</p>
                                 </div>
                             </div><!-- End slide item -->
 
                             <div class="swiper-slide">
                                 <div class="item">
-                                    <h3 class="mb-3">Necessitatibus suscipit non voluptatem quibusdam</h3>
-                                    <h4 class="mb-3">Tempora quos est ut quia adipisci ut voluptas. Deleniti
-                                        laborum soluta nihil est. Eum similique neque autem ut.</h4>
-                                    <p>Ut rerum et autem vel. Et rerum molestiae aut sit vel incidunt sit at
-                                        voluptatem. Saepe dolorem et sed voluptate impedit. Ad et qui sint at qui
-                                        animi animi rerum.</p>
+                                    <h3 class="mb-3">aquAPARRIculture</h3>
+                                    <h4 class="mb-3">OBJECTIVES</h4>
+                                    <p>1.Conduct research to enhance the integration of aquaculture systems with agricultural practices, optimizing water and nutrient cycles.
+                                        2.Develop scalable models of aquaparriculture for different environmental and socio-economic contexts.
+                                        3.Establish demonstration farms and learning centers to showcase the benefits and methods of aquaparriculture.
+                                        4.Advocate for policy changes that incentivize sustainable aquaparriculture practices.
+                                        5.Monitor and evaluate the environmental and economic impacts of aquaparriculture projects to continuously refine and improve methods.</p>
                                 </div>
                             </div><!-- End slide item -->
 

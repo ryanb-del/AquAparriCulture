@@ -1,54 +1,152 @@
-<x-guest-layout>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register to Capstone Project</title>
+    <style>
+        /* General styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url('bg/bg2.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
 
-    <h1>Register to Capstone Project</h1>
-    <form method="POST" action="{{ route('register') }}">
-        @csrf
+        .container {
+            background-color: rgba(255, 255, 255, 0); /* Completely transparent */
+            padding: 20px;
+            border-radius: 15px; /* Rounded corners */
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Softer shadow */
+            border: 1px solid rgba(255, 255, 255, 0.2); /* Light transparent border */
+            max-width: 400px;
+            width: 100%;
+            backdrop-filter: blur(15px); /* Stronger blur effect for the frosted glass effect */
+        }
 
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
-        </div>
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size:60px;
+            color: white;
+        }
 
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
+        /* Form styles */
+        .form-group {
+            margin-bottom: 15px;
+        }
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: white
+        }
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
+        .input-field {
+            width: 100%;
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
+        .input-field:focus {
+            border-color: #4a90e2;
+            outline: none;
+        }
 
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+        .error-message {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+        }
 
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
+        /* Button and links */
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            
+        }
+        .form-actions a{
+         color: white;
+            
+        }
 
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
 
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
+        .login-link {
+            font-size: 14px;
+            color: #555;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
 
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+        .login-link:hover {
+            color: #333;
+        }
+
+        .btn-primary {
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #357ab8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Register</h1>
+        <form method="POST" action="/register">
+            <!-- Name -->
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input id="name" class="input-field" type="text" name="name" required autofocus>
+                <p class="error-message" id="name-error"></p>
+            </div>
+
+            <!-- Email Address -->
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input id="email" class="input-field" type="email" name="email" required>
+                <p class="error-message" id="email-error"></p>
+            </div>
+
+            <!-- Password -->
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input id="password" class="input-field" type="password" name="password" required>
+                <p class="error-message" id="password-error"></p>
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="form-group">
+                <label for="password_confirmation">Confirm Password</label>
+                <input id="password_confirmation" class="input-field" type="password" name="password_confirmation" required>
+                <p class="error-message" id="password_confirmation-error"></p>
+            </div>
+
+            <div class="form-actions">
+                <a class="login-link" href="/login">Already registered?</a>
+                <button type="submit" class="btn-primary">Register</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
