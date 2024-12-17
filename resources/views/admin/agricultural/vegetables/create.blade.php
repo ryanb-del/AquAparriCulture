@@ -73,6 +73,19 @@
                                                             id="">
                                                     </div>
                                                 </div>
+
+                                                <div class="row mt-3">
+                                                    <div class="col-6">
+                                                        <label for="">Best time to Plant</label>
+                                                        <input type="text" class="form-control" name="best_time_to_plant"
+                                                            id="">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <label for="">Best time to harvest</label>
+                                                        <input type="text" class="form-control" name="best_time_to_harvest"
+                                                            id="">
+                                                    </div>
+                                                </div>
                                                 <div class="col">
                                                     <label for="">Description</label>
                                                     <textarea name="description" class="form-control" id=""></textarea>

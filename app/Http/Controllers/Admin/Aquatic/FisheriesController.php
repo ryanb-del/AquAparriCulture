@@ -52,6 +52,7 @@ class FisheriesController extends Controller
             'image' => $imageName,
             'name' => $request->name,
             'description' => $request->description,
+            'harvest' => $request->harvest,
             'type' => $request->type,
         ]);
 

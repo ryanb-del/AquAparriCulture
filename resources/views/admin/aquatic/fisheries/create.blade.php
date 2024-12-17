@@ -79,6 +79,11 @@
                                                         <label for="">Description</label>
                                                         <textarea name="description" class="form-control" id=""></textarea>
                                                     </div>
+                                                    <div class="col-6">
+                                                        <label for="">Best time to harvest</label>
+                                                        <input type="text" class="form-control" name="harvest"
+                                                            id="">
+                                                    </div>
                                                 </div>
                                                 <div class="text-end">
                                                     <input type="submit" class="btn btn-primary mt-3" value="Add Fish">

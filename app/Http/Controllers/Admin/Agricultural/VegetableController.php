@@ -47,7 +47,9 @@ class VegetableController extends Controller
             'name' => $request->name,
             'duration' => $request->duration,
             'description' => $request->description,
-           // Save the image file name or null
+            'best_time_to_plant' => $request->best_time_to_plant,
+            'best_time_to_harvest' => $request->best_time_to_harvest,
+            // Save the image file name or null
         ]);
         return redirect()->back()->with('success', 'saved successfully');
     }

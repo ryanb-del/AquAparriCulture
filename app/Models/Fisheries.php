@@ -14,5 +14,6 @@ class Fisheries extends Model
         'image',
         'type',
         'description',
+        'harvest',
     ];
 }
