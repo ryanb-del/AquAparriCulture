@@ -1,11 +1,11 @@
 @extends('layouts.Users.app')
 
-@section('title', 'Welcome to AgriGuide')
+@section('title', 'Welcome to AQUAPARRICULTURE')
 
 @section('content')
     {{-- <div class="jumbotron jumbotron-fluid text-white" style="background-color: #28a745; /* Bootstrap primary color */">
         <div class="container text-center">
-            <h1 class="display-4">Welcome to AgriGuide</h1>
+            <h1 class="display-4">Welcome to AQUAPARRI</h1>
             <p class="lead">Providing you the information you need</p>
 
             <div class="mt-4">
@@ -22,6 +22,7 @@
             </div>
         </div>
     </div> --}}
+
     {{-- <img src="assets/img/services.jpg" alt="" data-aos="fade-in"> --}}
     <section id="hero" class="hero section dark-background">
         <img src="{{ asset('assets/img/bg1.jpg') }}" alt="" data-aos="fade-in">
@@ -94,7 +95,9 @@
                                 <div class="item">
                                     <h3 class="mb-3">aquAPARRIculture</h3>
                                     <h4 class="mb-3">VISION</h4>
-                                    <p>To be a leading innovator in aquaparriculture, integrating sustainable aquatic farming practices with precision agriculture to ensure food security, protect aquatic ecosystems, and empower global communities..</p>
+                                    <p>To be a leading innovator in aquaparriculture, integrating sustainable aquatic 
+                                        farming practices with precision agriculture to ensure food security,
+                                         protect aquatic ecosystems, and empower global communities..</p>
                                 </div>
                             </div><!-- End slide item -->
 
@@ -144,7 +147,6 @@
             </div>
 
         </div>
-
     </section><!-- /Why Us Section -->
 
     <!-- Services Section -->

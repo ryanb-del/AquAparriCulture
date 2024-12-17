@@ -94,7 +94,28 @@
                                     </div>
                                 </div>
                             </div>
-                        </main>
+                            
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="card">
+                                        <img src="images/vegtable.jpg.jpg" class="card-img-top" alt="Fish">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Fish Corner</h5>
+                                            <p class="card-text">All about Fish are here.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            <div class="col-lg-4">
+                                <div class="card">
+                                    <img src="images/fruits.jpg.jpg" class="card-img-top" alt="Aqua-Equipments">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Aqua-Equipments Corner</h5>
+                                        <p class="card-text">All about Aqua-Equipments  are here.</p>
+                                    </div>
+                                </div>
+                            </div>
 
                         <style>
                             .jumbotron {
@@ -156,8 +177,8 @@
                                 </nav>
                                 <div class="jumbotron jumbotron-fluid">
                                     <div class="container text-center">
-                                        <h1 class="display-4">About Us</h1>
-                                        <p class="lead">Learn more About Agriculture</p>
+                                        <h1 class="display-4 "style="color:black;" class="display-4">About Us</h1>
+                                        <p class="lead" style="color:black;">Learn more About Agriculture</p>
                                     </div>
                                 </div>
                             </header>
@@ -165,10 +186,9 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <h2>Our Vision</h2>
-                                        <p>To be the leading online platform for agricultural guidance, empowering farmers
-                                            and
-                                            enthusiasts with knowledge and resources to cultivate sustainable and prosperous
-                                            agricultural practices.</p>
+                                        <p>To be a leading innovator in aquaparriculture,
+                                             integrating sustainable aquatic farming practices with precision agriculture to ensure food security, 
+                                             protect aquatic ecosystems, and empower global communities.</p>
                                     </div>
                                     <div class="col-lg-6">
                                         <h2>Our Mission</h2>

@@ -16,7 +16,8 @@
                                 </div>
                                 <div class="card-body" style="padding: 15px; text-align: center;">
                                     <h5 class="card-title">FISH Corner</h5>
-                                    <p class="card-text">All about fish are here.</p>
+                                    <button class="btn btn-success mt-2"
+                                    data-bs-toggle="modal" data-bs-target="#fruitsModal-{{ $data->id }}">Read More</button>
                                 </div>
                             </div>
                         </div>

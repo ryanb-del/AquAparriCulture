@@ -18,7 +18,8 @@
                                 <div class="card-body" style="padding: 15px;">
                                     <h5 class="card-title">{{ $vegetables->name }}</h5>
 
-                                    <p class="card-text" style="margin: 0;">{{ $vegetables->description }}</p>
+                                    <button class="btn btn-success mt-2"
+                                    data-bs-toggle="modal" data-bs-target="#fruitsModal-{{ $vegetables->id }}">Read More</button>
                                 </div>
                             </div>
                         </div>
