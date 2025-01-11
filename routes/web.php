@@ -125,7 +125,7 @@ Route::prefix('guest')->group(function(){
     route::view('/equipments', 'users.agriculture.equipments');
     route::view('/vegetables', 'users.agriculture.vegetables');
     route::view('/fisheries', 'users.aquatic.fisheries');
-    route::view('/aquapments', 'users.aquatic.equipments');
+    route::view('/aqua-equipments', 'users.aquatic.equipments');
 
 
 

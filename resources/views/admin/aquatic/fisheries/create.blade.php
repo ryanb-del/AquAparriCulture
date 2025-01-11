@@ -50,7 +50,7 @@
 
                             <div class="row">
                                 <div class="col">
-                                    <h1 class="text-center">Add Aquatic Equipments</h1>
+                                    <h1 class="text-center">Add Fish</h1>
 
                                     <div class="card">
                                         <div class="card-body">
@@ -65,24 +65,26 @@
                                                     </div>
                                                 </div>
                                                 <div class="row mt-3">
-                                                    <div class="col-6">
+                                                   
+                                                   <div class="col-6">
                                                         <label for="">Name of Fish</label>
                                                         <input type="text" class="form-control" name="name"
                                                             id="">
-                                                    </div>
-                                                    <div class="col-6">
+                                                    </div> 
+                                                  <!--  <div class="col-6">
                                                         <label for="">Type of Fish</label>
                                                         <input type="text" class="form-control" name="type"
                                                             id="">
-                                                    </div>
+                                                    </div>--> 
                                                     <div class="col-6">
                                                         <label for="">Description</label>
                                                         <textarea name="description" class="form-control" id=""></textarea>
                                                     </div>
-                                                    <div class="col-6">
+                                                 <!--     <div class="col-6">
                                                         <label for="">Best time to harvest</label>
                                                         <input type="text" class="form-control" name="harvest"
                                                             id="">
+                                                            --> 
                                                     </div>
                                                 </div>
                                                 <div class="text-end">

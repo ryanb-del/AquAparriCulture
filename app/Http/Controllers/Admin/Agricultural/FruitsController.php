@@ -73,8 +73,12 @@ class FruitsController extends Controller
      * Show the form for editing the specified resource.
      */
     public function edit(string $id)
-    {
-        //
+    
+        {
+            $fruit = fruits::find($id);
+            return view('admin.fruits.edit')
+            ->with('id',$id)
+            ->with('fruit',$fruit);
     }
 
     /**

@@ -32,7 +32,8 @@
                     <h1 data-aos="fade-up">Focus On What Matters</h1>
                     <blockquote data-aos="fade-up" data-aos-delay="100">
                         <p> 
-                            Aquaparriculture is the practice of combining aquaculture (fish farming) with agriculture in water-based systems. 
+                            Aquaparriculture is the practice of combining aquaculture 
+                            (fish farming) with agriculture in water-based systems. 
                         It promotes sustainable food production, enhances biodiversity, 
                         and supports local economies by efficiently using water resources.
                         </p>
@@ -43,9 +44,11 @@
                                 <a href="{{ url('/dashboard') }}" class="btn-get-started">Dashboard</a>
                             @else
                                 <a href="{{ route('login') }}" class="btn-get-started me-2">Get Started</a>
+
                                 {{-- @if (Route::has('register'))
                                     <a href="{{ route('register') }}" class="btn-get-started">Register</a>
                                 @endif --}}
+
                             @endauth
                         @endif
                     </div>
@@ -62,11 +65,11 @@
 
             <div class="row g-0">
 
-                <div class="col-xl-5 img-bg" data-aos="fade-up" data-aos-delay="100">
-                    <img src="assets/img/bg3.jpg" alt="">
+                <div class="col-xl-15 img-bg" data-aos="fade-up" data-aos-delay="100">
+                    <img src="assets/img/office.jpg" alt="">
                 </div>
 
-                <div class="col-xl-7 slides position-relative" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-xl-15 slides position-relative" data-aos="fade-up" data-aos-delay="200">
 
                     <div class="swiper init-swiper">
                         <script type="application/json" class="swiper-config">
@@ -116,11 +119,11 @@
                                 <div class="item">
                                     <h3 class="mb-3">aquAPARRIculture</h3>
                                     <h4 class="mb-3">GOALS</h4>
-                                    <p>1.Sustainability: Implement practices that minimize ecological footprints, ensuring the health of aquatic ecosystems and adjacent farmlands.</p>
-                                        <p>  2.Innovation: Develop and deploy cutting-edge technologies to optimize aquaparriculture processes and maximize yields.</p>
-                                            <p>3.Education and Training: Provide resources and training to stakeholders, empowering communities with the knowledge and skills needed to adopt aquaparriculture practices.</p>
-                                                <p>4.Global Reach: Expand the adoption of aquaparriculture in regions with food insecurity, offering sustainable solutions tailored to local environments.</p>
-                                                    <p>5.Collaboration: Foster partnerships with governments, NGOs, and the private sector to support research, funding, and policy-making efforts.</p>
+                                    <br>   <p>1.Sustainability: Implement practices that minimize ecological footprints, ensuring the health of aquatic ecosystems and adjacent farmlands.</p>
+                                    <br>     <p>  2.Innovation: Develop and deploy cutting-edge technologies to optimize aquaparriculture processes and maximize yields.</p>
+                                    <br>       <p>3.Education and Training: Provide resources and training to stakeholders, empowering communities with the knowledge and skills needed to adopt aquaparriculture practices.</p>
+                                    <br>           <p>4.Global Reach: Expand the adoption of aquaparriculture in regions with food insecurity, offering sustainable solutions tailored to local environments.</p>
+                                    <br>               <p>5.Collaboration: Foster partnerships with governments, NGOs, and the private sector to support research, funding, and policy-making efforts.</p>
                                 </div>
                             </div><!-- End slide item -->
 
@@ -128,11 +131,11 @@
                                 <div class="item">
                                     <h3 class="mb-3">aquAPARRIculture</h3>
                                     <h4 class="mb-3">OBJECTIVES</h4>
-                                    <p>1.Conduct research to enhance the integration of aquaculture systems with agricultural practices, optimizing water and nutrient cycles.
-                                        2.Develop scalable models of aquaparriculture for different environmental and socio-economic contexts.
-                                        3.Establish demonstration farms and learning centers to showcase the benefits and methods of aquaparriculture.
-                                        4.Advocate for policy changes that incentivize sustainable aquaparriculture practices.
-                                        5.Monitor and evaluate the environmental and economic impacts of aquaparriculture projects to continuously refine and improve methods.</p>
+                                    <p>1.Conduct research to enhance the integration of aquaculture systems with agricultural practices, optimizing water and nutrient cycles.</p>
+                                       <br><p> 2.Develop scalable models of aquaparriculture for different environmental and socio-economic contexts.</p>
+                                       <br>  <p>3.Establish demonstration farms and learning centers to showcase the benefits and methods of aquaparriculture.</p>
+                                       <br> <p> 4.Advocate for policy changes that incentivize sustainable aquaparriculture practices.</p>
+                                       <br> <p>5.Monitor and evaluate the environmental and economic impacts of aquaparriculture projects to continuously refine and improve methods.</p>
                                 </div>
                             </div><!-- End slide item -->
 
