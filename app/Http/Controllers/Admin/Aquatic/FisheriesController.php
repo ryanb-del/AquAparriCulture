@@ -30,12 +30,6 @@ class FisheriesController extends Controller
      */
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:50000', // Image validation
-        //     'farmers' => 'required|string|max:255',
-        //     'description' => 'required|string|max:255',
-        // ]);
-
         if ($request->hasFile('image')) {
             // Get the uploaded file
             $image = $request->file('image');
@@ -47,7 +41,7 @@ class FisheriesController extends Controller
             $imageName = null; // Set to null if no image is uploaded
         }
 
-        // Create a new barangay
+        // Create a new Fisheries resource
         Fisheries::create([
             'image' => $imageName,
             'name' => $request->name,
@@ -56,9 +50,8 @@ class FisheriesController extends Controller
             'type' => $request->type,
         ]);
 
-        return redirect()->back()->with('success', 'saved successfully');
+        return redirect()->back()->with('success', 'Saved successfully');
     }
-
 
     /**
      * Display the specified resource.
@@ -73,7 +66,8 @@ class FisheriesController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $fish = Fisheries::find($id);
+        return view('admin.aquatic.fisheries.edit', compact('fish'));
     }
 
     /**
@@ -81,7 +75,33 @@ class FisheriesController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $fish = Fisheries::find($id);
+
+        if ($request->hasFile('image')) {
+            // Get the uploaded file
+            $image = $request->file('image');
+            // Create a unique name for the image
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            // Move the image to the public/images directory
+            $image->move(public_path('list_of_fish'), $imageName);
+
+            // Delete the old image if a new one is uploaded
+            if ($fish->image) {
+                unlink(public_path('list_of_fish') . '/' . $fish->image);
+            }
+
+            $fish->image = $imageName;
+        }
+
+        $fish->name = $request->name;
+        $fish->description = $request->description;
+        $fish->harvest = $request->harvest;
+        $fish->type = $request->type;
+
+        // Save the updated data
+        $fish->save();
+
+        return redirect()->route('admin.fisheries.index')->with('success', 'Updated successfully');
     }
 
     /**
@@ -89,6 +109,17 @@ class FisheriesController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $fish = Fisheries::find($id);
+        if ($fish) {
+            // Delete the image from the server
+            if ($fish->image) {
+                unlink(public_path('list_of_fish') . '/' . $fish->image);
+            }
+
+            // Delete the resource
+            $fish->delete();
+        }
+
+        return redirect()->route('admin.fisheries.index')->with('success', 'Deleted successfully');
     }
 }

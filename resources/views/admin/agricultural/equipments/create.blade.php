@@ -1,7 +1,6 @@
 <x-app-layout>
     @can('admin-access')
 
-
         @section('content')
             <style>
                 .card-group {
@@ -40,6 +39,14 @@
                     width: 80%;
                     height: auto;
                 }
+
+                .form-group label {
+                    font-weight: bold;
+                }
+
+                .form-group small {
+                    color: #6c757d;
+                }
             </style>
 
             <div class="py-12">
@@ -47,36 +54,40 @@
                     <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div class="p-6 text-gray-900">
 
-
                             <div class="row">
                                 <div class="col">
-                                    <h1 class="text-center">Add Agriculture Equipments</h1>
+                                    <h1 class="text-center mb-4">Add Agriculture Equipments</h1>
 
-                                    <div class="card">
+                                    <div class="card shadow-sm">
                                         <div class="card-body">
                                             <form action="{{ route('admin.equipments.store') }}" method="POST"
-                                                enctype="multipart/form-data">
+                                                enctype="form-data">
                                                 @csrf
-                                                <div class="row">
+                                                <div class="row mb-4">
                                                     <div class="col">
-                                                        <label for="">Add Image</label>
-                                                        <input type="file" class="form-control" name="image"
-                                                            accept="image/*" id="">
+                                                        <div class="form-group">
+                                                            <label for="image">Add Image</label>
+                                                            <input type="file" class="form-control" name="image"
+                                                                accept="image/*" id="image">
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="row mt-3">
-                                                    <div class="col-6">
-                                                        <label for="">Name of Equipment</label>
-                                                        <input type="text" class="form-control" name="name"
-                                                            id="">
+                                                <div class="row mb-4">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="name">Name of Equipment</label>
+                                                            <input type="text" class="form-control" name="name" id="name">
+                                                        </div>
+                                                        <div class="row mb-4">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="description">Description</label>
+                                                            <textarea name="description" class="form-control" id="description"></textarea>
+                                                        </div>
                                                     </div>
-                                                    <div class="col-6">
-                                                        <label for="">Description</label>
-                                                        <textarea name="description" class="form-control" id=""></textarea>
-                                                    </div>
-                                                </div>
+                                                </div>       
                                                 <div class="text-end">
-                                                    <input type="submit" class="btn btn-primary mt-3" value="Add Equipment">
+                                                    <button type="submit" class="btn btn-primary">Add Equipment</button>
                                                 </div>
                                             </form>
                                         </div>

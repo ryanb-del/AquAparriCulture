@@ -22,10 +22,7 @@
                     </x-nav-link>
 
 
-                    <!-- <x-nav-link :href="route('admin.userfeedback')" :active="request()->routeIs('admin.userfeedback')">
-                        {{ __('Feedbacks') }}
-                    </x-nav-link> -->
-
+                 
                     <x-nav-link :href="route('admin.fruits.index')" :active="request()->routeIs('admin.fruits.index')">
                         {{ __('Fruits Corners') }}
                     </x-nav-link>

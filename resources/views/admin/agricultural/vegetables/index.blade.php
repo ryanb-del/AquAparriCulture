@@ -91,16 +91,16 @@
                                                         <div class="text-center mt-1">
                                                             <h6 class="fw-semibold">{{ $vegetables->name }}</h6>
                                                         </div>
-                                                        <button href="" class="btn btn-primary mt-2"
-                                                            data-bs-toggle="modal">Edit</button>
-                                                        <button href="#" class="btn btn-success"
+                                                        <button class="btn btn-primary mt-2" data-bs-toggle="modal"
+                                                            data-bs-target="#editVegetablesModal-{{ $vegetables->id }}">Edit</button>
+                                                        <button class="btn btn-success mt-2"
                                                             data-bs-toggle="modal"
                                                             data-bs-target="#vegetablesModal-{{ $vegetables->id }}">Read More</button>
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <!-- Modal -->
+                                            <!-- Read More Modal -->
                                             <div class="modal fade" id="vegetablesModal-{{ $vegetables->id }}" tabindex="-1"
                                                 aria-labelledby="vegetablesModalLabel-{{ $vegetables->id }}" aria-hidden="true">
                                                 <div class="modal-dialog modal-lg">
@@ -130,13 +130,50 @@
                                                     </div>
                                                 </div>
                                             </div>
+
+                                            <!-- Edit Modal -->
+                                            <div class="modal fade" id="editVegetablesModal-{{ $vegetables->id }}" tabindex="-1"
+                                                aria-labelledby="editVegetablesModalLabel-{{ $vegetables->id }}" aria-hidden="true">
+                                                <div class="modal-dialog modal-lg">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="editVegetablesModalLabel-{{ $vegetables->id }}">
+                                                                Edit {{ $vegetables->name }}</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <form method="POST" action="{{ route('admin.vegetables.update', $vegetables->id) }}" enctype="multipart/form-data">
+                                                            @csrf
+                                                            @method('PUT') <!-- This tells Laravel to treat this as a PUT request -->
+                                                            <div class="modal-body">
+                                                                <div class="mb-3">
+                                                                    <label for="name-{{ $vegetables->id }}" class="form-label">Name</label>
+                                                                    <input type="text" class="form-control" id="name-{{ $vegetables->id }}" name="name"
+                                                                        value="{{ $vegetables->name }}" required>
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <label for="description-{{ $vegetables->id }}" class="form-label">Description</label>
+                                                                    <textarea class="form-control" id="description-{{ $vegetables->id }}" name="description" rows="3"
+                                                                        required>{{ $vegetables->description }}</textarea>
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <label for="image-{{ $vegetables->id }}" class="form-label">Image</label>
+                                                                    <input type="file" class="form-control" id="image-{{ $vegetables->id }}" name="image">
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                                <button type="submit" class="btn btn-primary">Save changes</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         @endforeach
                                     </div>
                                 </div>
                             </div>
 
                             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-
                         </div>
                     </div>
                 </div>

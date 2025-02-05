@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Agricultural;
 
+
 use App\Http\Controllers\Controller;
 use App\Models\Equipment;
 use Illuminate\Http\Request;
@@ -30,11 +31,11 @@ class EquipmentController extends Controller
      */
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:50000', // Image validation
-        //     'farmers' => 'required|string|max:255',
-        //     'description' => 'required|string|max:255',
-        // ]);
+        $request->validate([
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:50000', // Image validation
+            'farmers' => 'required|string|max:255',
+            'description' => 'required|string|max:255',
+        ]);
 
         if ($request->hasFile('image')) {
             // Get the uploaded file
@@ -77,10 +78,7 @@ class EquipmentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
+    
 
     /**
      * Remove the specified resource from storage.
@@ -89,4 +87,26 @@ class EquipmentController extends Controller
     {
         //
     }
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        $equipment = Equipment::findOrFail($id);
+        $equipment->name = $request->name;
+        $equipment->description = $request->description;
+
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('list_of_equipment', 'public');
+            $equipment->image = basename($imagePath);
+        }
+
+        $equipment->save();
+
+        return redirect()->back()->with('success', 'Equipment updated successfully.');
+    }
 }
+

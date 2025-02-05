@@ -7,49 +7,43 @@
 
 <style>
     
-                /* Transparent card styles */
-                .card-group .card {
-                    background-color: rgba(255, 255, 255, 0.7); /* Transparent background */
-                    border: 1px solid rgba(0, 0, 0, 0.1); /* Light border for visibility */
-                    box-shadow: none;
-                }
+    /* Adjust the size of the modal dialog */
+    .modal-dialog {
+        z-index: 1050 !important; /* Ensures modal is above other elements */
+    }
 
-                .card-group .card:hover {
-                    background-color: rgba(255, 255, 255, 0.9); /* Slightly more opaque on hover */
-                }
+    /* Adjust modal body to fill more vertical space */
+    .modal-body {
+        max-height: none;  /* Allow the body to expand freely */
+        padding: 30px;
+        
+    }
 
-                /* Card image transitions */
-                .card-img-top {
-                    transition: all 0.3s ease-in-out;
-                    width: 100%;
-                    height: 200px;
-                    object-fit: cover;
-                }
+    /* Ensure the image is responsive and doesn't overflow */
+    .modal-body img {
+        width: 100%;  /* Allow image to take full width of the modal */
+        height: auto;  /* Maintain aspect ratio */
+        display: block;
+        margin: 20px auto;  /* Center the image and add margin */
+    }
 
-                /* Read more button */
-                .read-more {
-                    position: absolute;
-                    bottom: 10px;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    background-color: rgba(0, 0, 0, 0.5);
-                    color: #fff;
-                    padding: 5px 10px;
-                    border-radius: 5px;
-                    text-decoration: none;
-                    opacity: 0;
-                    transition: opacity 0.3s ease-in-out;
-                }
+    /* Optional: Adjust modal header */
+    .modal-header {
+        background-color: #3476b9;
+    }
 
-                .card-group:hover .read-more {
-                    opacity: 1;
-                }
+    .modal-title {
+        font-weight: bold;
+    }
 
-                /* Modal image styling */
-                .modal-content img {
-                    width: 80%;
-                    height: auto;
-                }
+    /* Custom CSS to remove modal backdrop */
+    .modal-backdrop.show {
+        display: none !important;
+    }
+
+    .modal-backdrop {
+        z-index: 1040 !important; /* Ensures backdrop is above other elements */
+    }
 
 </style>
     <section id="features" class="hero">

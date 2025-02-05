@@ -1,167 +1,128 @@
-@extends('layouts.Users.app')
-@section('content')
-    <style>
-        .card {
-            margin-bottom: 20px;
-        }
+<x-app-layout>
+    @section('content')
+        <style>
+            .contact-card {
+                padding: 20px;
+                border: 1px solid #e5e7eb;
+                border-radius: 10px;
+                background-color: #ffffff;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                margin-bottom: 20px;
+            }
 
-        .card img {
-            height: 200px;
-            object-fit: cover;
-        }
+            .form-control {
+                border-radius: 5px;
+                border: 1px solid #ced4da;
+                transition: border-color 0.3s, box-shadow 0.3s;
+            }
 
-        .card-title {
-            font-weight: bold;
-        }
+            .form-control:focus {
+                border-color: #007bff;
+                box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+            }
 
-        .footer {
-            background-color: #3cb371;
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-        }
-        
-    </style>
+            .btn-primary {
+                background-color: #007bff;
+                border-color: #007bff;
+                transition: background-color 0.3s, box-shadow 0.3s;
+            }
 
-    <main class="container">
-        <div class="row">
-            <div class="col-lg-6">
-                <h2 >Our Vision</h2>
-                <p>To be the leading online platform for agricultural guidance, empowering farmers and
-                    enthusiasts with knowledge and resources to cultivate sustainable and prosperous
-                    agricultural practices.</p>
-            </div>
-            <div class="col-lg-6">
-                <h2 class="text-center">Our Mission</h2>
-                <p>Our mission is to provide comprehensive and reliable agricultural guidance through our
-                    website,
-                    offering a wealth of information, resources, and tools to support farmers and individuals
-                    interested in agriculture.
-                    We aim to foster a community of knowledge sharing, connecting experts, and enthusiasts to
-                    facilitate the exchange of ideas and best practices.
-                    By promoting sustainable and innovative farming techniques,
-                    we strive to contribute to the growth and development of the agricultural industry,
-                    ensuring food security and environmental stewardship for future generations.</p>
-            </div>
-        </div>
-    </main>
+            .btn-primary:hover {
+                background-color: #0056b3;
+                box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+            }
 
+            iframe {
+                border: none;
+                border-radius: 10px;
+                width: 100%;
+                height: 400px;
+                margin-bottom: 20px;
+            }
+        </style>
 
+        <div class="py-12">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="p-6 text-gray-900">
 
-
-    <!--### Contact Starts Here ####-->
-
-    <div class="container-fluid big-padding pt-3">
-        <div class="container-xl">
-            <div class="row px-5">
-                <div class="col-lg-6">
-                    <h1 class="text-primary text-uppercase">Contact Us</h1>
-                    <h2 class="fw-bolder">We Are Here <br> to Help You </h2>
-                    <p></p>
-                    <div class="d-flex align-items-center">
-                        <div class="flex-shrink-0 align-self-centr pt-3">
-                            <i class="bi text-primary fs-3 bi-telephone-outbound"></i>
+                        <!-- Google Map -->
+                        <div>
+                            <h1 class="text-center mb-4">Contact Us</h1>
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3906.621121034575!2d121.64311757488186!3d18.356143789251374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33116c78ac7b1449%3A0xe154f6a326b56bb3!2sAparri%2C%20Cagayan!5e0!3m2!1sen!2sph!4v1674482412345!5m2!1sen!2sph" 
+                                allowfullscreen="" loading="lazy"></iframe>
                         </div>
-                        <div class="flex-grow-1 pt-4 ms-3">
-                            <span>Phone</span>
-                            <h6 class="fw-bolder">+63 123456789</h6>
+
+                        <!-- Contact Information -->
+                        <div class="contact-card">
+                            <h2>Contact Information</h2>
+                            <p><strong>Phone Number:</strong> (078) 888-1234</p>
+                            <p><strong>Email Address:</strong> contact@aparri.gov.ph</p>
+                            <p><strong>Address:</strong> Municipality of Aparri, Cagayan, Philippines</p>
+                            <p><strong>Social Media:</strong></p>
+                            <ul>
+                                <li><a href="https://facebook.com/aparri" target="_blank">Facebook</a></li>
+                                <li><a href="https://twitter.com/aparri" target="_blank">Twitter</a></li>
+                                <li><a href="https://instagram.com/aparri" target="_blank">Instagram</a></li>
+                            </ul>
                         </div>
-                    </div>
 
-                    <div class="d-flex align-items-center">
-                        <div class="flex-shrink-0 align-self-centr pt-3">
-                            <i class="bi bi-envelope-at fs-3 text-primary"></i>
-                        </div>
-                        <div class="flex-grow-1 pt-4 ms-3">
-                            <span>Email</span>
-                            <h6 class="fw-bolder">MunicipalAgricultureOffice@email.com </h6>
-                        </div>
-                    </div>
+                        <!-- Inquiry Form -->
+                        <div class="contact-card">
+                            <h2>Do you have other questions? Just fill out the form below and we’ll get back to you as soon as possible.</h2>
 
-
-                </div>
-                <div class="col-lg-6 mt-4 mt-lg-0">
-                    <div class="bg-agri p-5">
-
-                        <div class="row mt-4">
-                            <div class="col-md-6">
-                                <div class="mb-0">
-                                    <label for="exampleFormControlInput1" class="form-label">Full
-                                        Name</label>
-                                    <input type="email" class="form-control bg-white rounded-0 form-control-lg"
-                                        id="exampleFormControlInput1" placeholder="Enter Name">
-                                </div>
-
-                            </div>
-                            <div class="col-md-6">
-                                <div class="mb-0">
-                                    <label for="exampleFormControlInput1" class="form-label">Mobile
-                                        Number</label>
-                                    <input type="email" class="form-control bg-white rounded-0 form-control-lg"
-                                        id="exampleFormControlInput1" placeholder="Enter Mobile Number">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
+                            <form action="{{ route('contact.submit') }}" method="POST">
+                                @csrf
                                 <div class="mb-3">
-                                    <label for="exampleFormControlInput1" class="form-label">Enter
-                                        Message</label>
-                                    <textarea placeholder="Enter Message" name="" id="" cols="30" rows="5"
-                                        class="form-control bg-white rounded-0"></textarea>
+                                    <label for="user_type" class="form-label">Please choose one *</label>
+                                    <select class="form-control" name="user_type" id="user_type" required>
+                                        <option value="" disabled selected>Select your type</option>
+                                        <option value="farmer">Farmer</option>
+                                        <option value="businessman">Businessman</option>
+                                        <option value="student">Student</option>
+                                        <option value="researcher">Researcher</option>
+                                        <option value="other">Other</option>
+                                    </select>
                                 </div>
-                            </div>
-                        </div>
 
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="mb-3">
-                                    <button class="btn btn-primary w-100 btn-lg">Send Message</button>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="first_name" class="form-label">First Name *</label>
+                                        <input type="text" class="form-control" name="first_name" id="first_name" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="last_name" class="form-label">Last Name *</label>
+                                        <input type="text" class="form-control" name="last_name" id="last_name" required>
+                                    </div>
                                 </div>
-                            </div>
+
+                                <div class="mb-3">
+                                    <label for="address" class="form-label">Address / Location *</label>
+                                    <input type="text" class="form-control" name="address" id="address" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email Address *</label>
+                                    <input type="email" class="form-control" name="email" id="email" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">Message *</label>
+                                    <textarea class="form-control" name="message" id="message" rows="5" required></textarea>
+                                </div>
+
+                                <div class="text-end">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </form>
                         </div>
 
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    
-    <h1>Map of Aparri, Cagayan</h1>
-    <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3908.334269319007!2d121.64135751542382!3d18.356319687531936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x338fd773a35a6e1f%3A0xe14c83c06a162180!2sAparri%2C%20Cagayan!5e0!3m2!1sen!2sph!4v1234567890123" 
-        width="600" 
-        height="450" 
-        style="border:0;" 
-        allowfullscreen="" 
-        loading="lazy" 
-        referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
 
-    <!--### Iframe Starts Here ####-->
-
-    <div class="container-fluid big-padding pt-3">
-        <div class="container-xl">
-            <div class="row px-5">
-                <div class="col-md-12">
-                    <iframe style="width:100%"
-                        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d249759.19784092825!2d79.10145254589841!3d12.009924873581818!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1448883859107"
-                        height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!--###  Reaching US ####-->
-
-    <div class="about-content container-fluid">
-        <div class="container-xl px-0 px-md-5">
-            <div class="row mb-5">
-                <div class="col-md-7 text-center mx-auto">
-                    <h1 class="fw-bolder">Thanks for Reaching Out</h1>
-
-                </div>
-            </div>
-        </div>
-    </div>
-@endsection
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    @endsection
+</x-app-layout>

@@ -5,47 +5,46 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <style>
-    .card {
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        overflow: hidden;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    }
-    .card-img-top {
-        object-fit: cover;
-        height: 100%;
-        width: 100%;
-    }
+    
+    /* Adjust the size of the modal dialog */
     .modal-dialog {
-        max-width: 80%;
-        margin: 30px auto;
+        z-index: 1050 !important; /* Ensures modal is above other elements */
     }
+
+    /* Adjust modal body to fill more vertical space */
     .modal-body {
-        max-height: 60vh;
-        overflow-y: auto;
+        max-height: none;  /* Allow the body to expand freely */
+        padding: 30px;
+        
     }
+
+    /* Ensure the image is responsive and doesn't overflow */
     .modal-body img {
-        width: 100%;
-        height: auto;
+        width: 100%;  /* Allow image to take full width of the modal */
+        height: auto;  /* Maintain aspect ratio */
+        display: block;
+        margin: 20px auto;  /* Center the image and add margin */
     }
+
+    /* Optional: Adjust modal header */
     .modal-header {
-        background-color: #f8f9fa;
+        background-color: #3476b9;
     }
+
     .modal-title {
         font-weight: bold;
     }
-    .btn-close {
-        background: none;
-        border: none;
+
+    /* Custom CSS to remove modal backdrop */
+    .modal-backdrop.show {
+        display: none !important;
     }
-    .btn-close:hover {
-        opacity: 0.7;
+
+    .modal-backdrop {
+        z-index: 1040 !important; /* Ensures backdrop is above other elements */
     }
 </style>
+
 
 <section id="features" class="hero">
     <div class="container-fluid">

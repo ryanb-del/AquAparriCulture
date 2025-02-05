@@ -66,7 +66,7 @@
                                     <div class="card">
                                         <img src="images/vegtable.jpg.jpg" class="card-img-top" alt="Vegetables">
                                         <div class="card-body">
-                                            <h5 class="card-title">Vegetables Corner</h5>
+                                            <h5 class="card-title">Vegetables</h5>
                                             <p class="card-text">All about Vegetables are here.</p>
                                         </div>
                                     </div>
@@ -77,7 +77,7 @@
                                     <div class="card">
                                         <img src="images/fruits.jpg.jpg" class="card-img-top" alt="Fruits">
                                         <div class="card-body">
-                                            <h5 class="card-title">Fruits Corner</h5>
+                                            <h5 class="card-title">Fruits </h5>
                                             <p class="card-text">All about Fruits are here.</p>
                                         </div>
                                     </div>
@@ -88,7 +88,7 @@
                                     <div class="card">
                                         <img src="images/farmers.jpg.jpg" class="card-img-top" alt="Farmers">
                                         <div class="card-body">
-                                            <h5 class="card-title">Farmers Corner</h5>
+                                            <h5 class="card-title">Farmers Equipments</h5>
                                             <p class="card-text">All about farmers are Here.</p>
                                         </div>
                                     </div>
@@ -100,18 +100,17 @@
                                     <div class="card">
                                         <img src="images/vegtable.jpg.jpg" class="card-img-top" alt="Fish">
                                         <div class="card-body">
-                                            <h5 class="card-title">Fish Corner</h5>
+                                            <h5 class="card-title">Fish</h5>
                                             <p class="card-text">All about Fish are here.</p>
                                         </div>
                                     </div>
                                 </div>
 
-
                             <div class="col-lg-4">
                                 <div class="card">
-                                    <img src="images/fruits.jpg.jpg" class="card-img-top" alt="Aqua-Equipments">
+                                    <img src="images/f.jpg" class="card-img-top" alt="Aqua-Equipments">
                                     <div class="card-body">
-                                        <h5 class="card-title">Aqua-Equipments Corner</h5>
+                                        <h5 class="card-title">Aqua-Equipments </h5>
                                         <p class="card-text">All about Aqua-Equipments  are here.</p>
                                     </div>
                                 </div>

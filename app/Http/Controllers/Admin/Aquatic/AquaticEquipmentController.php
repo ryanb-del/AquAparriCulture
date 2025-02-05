@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Admin\Aquatic;
 
 use App\Http\Controllers\Controller;
-use App\Models\Equipment;
+use App\Models\AquaEquipment; // Use the AquaEquipment model instead of Equipment
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AquaticEquipmentController extends Controller
 {
@@ -13,7 +14,10 @@ class AquaticEquipmentController extends Controller
      */
     public function index()
     {
-        $equipments = Equipment::where('type', 'aquatic')->get();
+        // Fetch all equipment from the aqua-equipments table
+        $equipments = AquaEquipment::all();
+        
+        // Return the view with the fetched equipments
         return view('admin.aquatic.equipments.index', compact('equipments'));
     }
 
@@ -30,40 +34,28 @@ class AquaticEquipmentController extends Controller
      */
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:50000', // Image validation
-        //     'farmers' => 'required|string|max:255',
-        //     'description' => 'required|string|max:255',
-        // ]);
+        $request->validate([
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:50000',
+            'name' => 'required|string|max:255',
+            'description' => 'required|string|max:255',
+        ]);
 
+        $imageName = null;
         if ($request->hasFile('image')) {
-            // Get the uploaded file
             $image = $request->file('image');
-            // Create a unique name for the image
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            // Move the image to the public/images directory
             $image->move(public_path('list_of_equipment'), $imageName);
-        } else {
-            $imageName = null; // Set to null if no image is uploaded
         }
 
-        // Create a new barangay
-        Equipment::create([
+        // Using AquaEquipment model to insert into the correct table
+        AquaEquipment::create([
             'image' => $imageName,
             'name' => $request->name,
             'description' => $request->description,
-            'type' => 'aquatic'
+            'type' => 'aquatic',
         ]);
 
-        return redirect()->back()->with('success', 'saved successfully');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
+        return redirect()->route('admin.aquatic.index')->with('success', 'Equipment saved successfully');
     }
 
     /**
@@ -71,7 +63,9 @@ class AquaticEquipmentController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        // Fetch the equipment to edit using AquaEquipment model
+        $equipment = AquaEquipment::findOrFail($id);
+        return view('admin.aquatic.equipments.edit', compact('equipment'));
     }
 
     /**
@@ -79,7 +73,38 @@ class AquaticEquipmentController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:50000',
+            'name' => 'required|string|max:255',
+            'description' => 'required|string|max:255',
+        ]);
+
+        // Find the equipment to update using AquaEquipment model
+        $equipment = AquaEquipment::findOrFail($id);
+
+        if ($request->hasFile('image')) {
+            // Delete old image if exists
+            if ($equipment->image) {
+                Storage::delete('list_of_equipment/' . $equipment->image);
+            }
+
+            // Upload the new image
+            $image = $request->file('image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('list_of_equipment'), $imageName);
+        } else {
+            // Keep the old image if no new image is uploaded
+            $imageName = $equipment->image;
+        }
+
+        // Update the equipment record
+        $equipment->update([
+            'name' => $request->name,
+            'description' => $request->description,
+            'image' => $imageName,
+        ]);
+
+        return redirect()->route('admin.aquatic.index')->with('success', 'Equipment updated successfully');
     }
 
     /**
@@ -87,6 +112,17 @@ class AquaticEquipmentController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // Find the equipment to delete using AquaEquipment model
+        $equipment = AquaEquipment::findOrFail($id);
+
+        // Delete the image from storage if it exists
+        if ($equipment->image) {
+            Storage::delete('list_of_equipment/' . $equipment->image);
+        }
+
+        // Delete the equipment record from the database
+        $equipment->delete();
+
+        return redirect()->route('admin.aquatic.equipments.index')->with('success', 'Equipment deleted successfully');
     }
 }

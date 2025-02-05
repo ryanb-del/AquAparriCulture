@@ -81,53 +81,91 @@
                                 <div class="col">
                                     <h3 class="text-center">List of All Aquatic Equipment</h3>
                                     <div class="row">
-                                        @foreach ($equipments as $data)
+                                        @foreach ($equipments as $equipment)
                                             <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-3">
                                                 <div class="card-group">
                                                     <div class="card p-0">
-                                                        <img src="{{ $data->image ? asset('list_of_equipment/' . $data->image) : asset('assets/img/offices/default.jpg') }}"
-                                                            class="card-img-top" alt="Image of {{ $data->data }}"
+                                                        <img src="{{ $equipment->image ? asset('list_of_equipment/' . $equipment->image) : asset('assets/img/offices/default.jpg') }}"
+                                                            class="card-img-top" alt="Image of {{ $equipment->equipment }}"
                                                             style="object-fit:cover;">
                                                         <div class="text-center mt-1">
-                                                            <h6 class="fw-semibold">{{ $data->name }}</h6>
+                                                            <h6 class="fw-semibold">{{ $equipment->name }}</h6>
                                                         </div>
 
-                                                        <button href="" class="btn btn-primary mt-2"
-                                                            data-bs-toggle="modal">Edit</button>
-                                                        <button href="#" class="btn btn-success mt-2"
-                                                            data-bs-toggle="modal"
-                                                            data-bs-target="#farmersModal-{{ $data->id }}">Read More</button>
+                                                        <!-- Corrected Edit Modal Trigger -->
+                                                        <button class="btn btn-primary mt-2" equipment-bs-toggle="modal"
+                                                            equipment-bs-target="#editequipmentModal-{{ $equipment->id }}">Edit</button>
+                                                        <button class="btn btn-success mt-2" equipment-bs-toggle="modal"
+                                                            equipment-bs-target="#farmersModal-{{ $equipment->id }}">Read More</button>
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <!-- Modal -->
-                                            <div class="modal fade" id="farmersModal-{{ $data->id }}" tabindex="-1"
-                                                aria-labelledby="farmersModalLabel-{{ $data->id }}" aria-hidden="true">
+                                            <!-- Modal to Show More Information -->
+                                            <div class="modal fade" id="farmersModal-{{ $equipment->id }}" tabindex="-1"
+                                                aria-labelledby="farmersModalLabel-{{ $equipment->id }}" aria-hidden="true">
                                                 <div class="modal-dialog modal-lg">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title" id="farmersModalLabel-{{ $data->id }}">
-                                                                {{ $data->name }}</h5>
-                                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            <h5 class="modal-title" id="farmersModalLabel-{{ $equipment->id }}">
+                                                                {{ $equipment->name }}</h5>
+                                                            <button type="button" class="btn-close" equipment-bs-dismiss="modal"
                                                                 aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
                                                             <div class="row">
                                                                 <div class="col-6">
-                                                                    <img src="{{ $data->image ? asset('list_of_equipment/' . $data->image) : asset('assets/img/offices/default.jpg') }}"
-                                                                        alt="Image of {{ $data->name }}">
+                                                                    <img src="{{ $equipment->image ? asset('list_of_equipment/' . $equipment->image) : asset('assets/img/offices/default.jpg') }}"
+                                                                        alt="Image of {{ $equipment->name }}">
                                                                 </div>
                                                                 <div class="col-6">
                                                                     <h5>Description</h5>
-                                                                    <p class="mt-3">{{ $data->description }}</p>
+                                                                    <p class="mt-3">{{ $equipment->description }}</p>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary"
-                                                                data-bs-dismiss="modal">Close</button>
+                                                                equipment-bs-dismiss="modal">Close</button>
                                                         </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Edit Modal -->
+                                            <div class="modal fade" id="editequipmentModal-{{ $equipment->id }}" tabindex="-1"
+                                                aria-labelledby="editequipmentModalLabel-{{ $equipment->id }}" aria-hidden="true">
+                                                <div class="modal-dialog modal-lg">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="editequipmentModalLabel-{{ $equipment->id }}">
+                                                                Edit {{ $equipment->name }}</h5>
+                                                            <button type="button" class="btn-close" equipment-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <form method="POST" action="{{ route('admin.aquatic.update', $equipment->id) }}" enctype="multipart/form-equipment">
+                                                            @csrf
+                                                            @method('PUT')
+                                                            <div class="modal-body">
+                                                                <div class="mb-3">
+                                                                    <label for="name-{{ $equipment->id }}" class="form-label">Name</label>
+                                                                    <input type="text" class="form-control" id="name-{{ $equipment->id }}" name="name"
+                                                                        value="{{ $equipment->name }}" required>
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <label for="description-{{ $equipment->id }}" class="form-label">Description</label>
+                                                                    <textarea class="form-control" id="description-{{ $equipment->id }}" name="description" rows="3"
+                                                                        required>{{ $equipment->description }}</textarea>
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <label for="image-{{ $equipment->id }}" class="form-label">Image</label>
+                                                                    <input type="file" class="form-control" id="image-{{ $equipment->id }}" name="image">
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                                <button type="submit" class="btn btn-primary">Save changes</button>
+                                                            </div>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>

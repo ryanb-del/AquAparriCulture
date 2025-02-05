@@ -1,6 +1,8 @@
 <?php
-
-use App\Http\Controllers\Admin\Agricultural\EquipmentController;
+use App\Http\Controllers\Admin\Aquatic\FisheriesController;
+use App\Http\Controllers\Admin\Aquatic\AquaticEquipmentController;
+use App\Http\Controllers\Admin\Agricultural\FruitsController;
+use App\Http\Controllers\Admin\Agricultural\VegetableController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -74,6 +76,17 @@ Route::namespace('App\Http\Controllers\Admin\Agricultural')->prefix('admin')->na
 
     Route::resource('/vegetables','VegetableController');
 
+    Route::prefix('admin/agricultural')->name('admin.agricultural.')->middleware(['auth', 'can:admin-access'])->group(function() {
+        Route::resource('equipments', EquipmentController::class);
+    });
+    Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin-access'])->group(function () {
+        Route::resource('vegetables', VegetableController::class);
+        Route::put('/admin/vegetables/{id}', [VegetableController::class, 'update'])->name('admin.vegetables.update');
+        Route::prefix('admin')->name('admin.')->middleware(['auth', 'can:admin-access'])->group(function () {
+            Route::put('/admin/fruits/{id}', [FruitsController::class, 'update'])->name('admin.fruits.update');
+            Route::resource('fruits', FruitsController::class);
+        });
+    });
 
 });
 
@@ -83,7 +96,15 @@ Route::namespace('App\Http\Controllers\Admin\Aquatic')->prefix('admin')->name('a
 
     Route::resource('/fisheries','FisheriesController');
 
+    Route::prefix('admin')->name('admin.')->middleware(['auth', 'can:admin-access'])->group(function () {
+        Route::resource('fisheries', FisheriesController::class);
+        Route::put('/admin/fisheries/{id}', [FisheriesController::class, 'update'])->name('admin.fisheries.update');
+    });
 
+    Route::prefix('admin')->name('admin.')->middleware(['auth', 'can:admin-access'])->group(function () {
+        Route::resource('aquatic-equipment', AquaticEquipmentController::class);
+        Route::put('/admin/aquatic-equipment/{id}', [AquaticEquipmentController::class, 'update'])->name('admin.aquatic.update');
+    });
 });
 
 

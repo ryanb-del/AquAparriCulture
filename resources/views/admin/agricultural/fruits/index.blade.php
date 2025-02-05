@@ -96,15 +96,15 @@
                                                         <div class="text-center mt-1">
                                                             <h6 class="fw-semibold">{{ $fruits->name }}</h6>
                                                         </div>
-                                                        <button class="btn btn-primary mt-2"
-                                                            data-bs-toggle="modal">Edit</button>
+                                                        <button class="btn btn-primary mt-2" data-bs-toggle="modal"
+                                                            data-bs-target="#editfruitsModal-{{ $fruits->id }}">Edit</button>
                                                         <button class="btn btn-success mt-2"
                                                             data-bs-toggle="modal" data-bs-target="#fruitsModal-{{ $fruits->id }}">Read More</button>
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <!-- Modal -->
+                                            <!-- Modal (Read More) -->
                                             <div class="modal fade" id="fruitsModal-{{ $fruits->id }}" tabindex="-1"
                                                 aria-labelledby="fruitsModalLabel-{{ $fruits->id }}" aria-hidden="true">
                                                 <div class="modal-dialog modal-lg">
@@ -125,6 +125,25 @@
                                                                 <div class="col-6">
                                                                     <h5>Description</h5>
                                                                     <p class="mt-3">{{ $fruits->description }}</p>
+                                                                    <p><strong>Location:</strong> {{ $fruits->location }}</p>
+                                                                    <p><strong>Best Time to Plant:</strong> 
+                                                                        @php
+                                                                            $bestTimeToPlant = json_decode($fruits->best_time_to_plant);
+                                                                            $bestTimeToPlant = is_array($bestTimeToPlant) ? $bestTimeToPlant : [];
+                                                                        @endphp
+                                                                        @foreach ($bestTimeToPlant as $month)
+                                                                            {{ ucfirst($month) }},
+                                                                        @endforeach
+                                                                    </p>
+                                                                    <p><strong>Best Time to Harvest:</strong> 
+                                                                        @php
+                                                                            $bestTimeToHarvest = json_decode($fruits->best_time_to_harvest);
+                                                                            $bestTimeToHarvest = is_array($bestTimeToHarvest) ? $bestTimeToHarvest : [];
+                                                                        @endphp
+                                                                        @foreach ($bestTimeToHarvest as $month)
+                                                                            {{ ucfirst($month) }},
+                                                                        @endforeach
+                                                                    </p>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -135,12 +154,63 @@
                                                     </div>
                                                 </div>
                                             </div>
+
+                                            <!-- Edit Modal -->
+                                            <div class="modal fade" id="editfruitsModal-{{ $fruits->id }}" tabindex="-1"
+                                                aria-labelledby="editfruitsModalLabel-{{ $fruits->id }}" aria-hidden="true">
+                                                <div class="modal-dialog modal-lg">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="editfruitsModalLabel-{{ $fruits->id }}">
+                                                                Edit {{ $fruits->name }}</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <form method="POST" action="{{ route('admin.fruits.update', $fruits->id) }}" enctype="multipart/form-data">
+                                                            @csrf
+                                                            @method('PUT') <!-- This tells Laravel to treat this as a PUT request -->
+                                                            <div class="modal-body">
+                                                                <div class="mb-3">
+                                                                    <label for="name-{{ $fruits->id }}" class="form-label">Name</label>
+                                                                    <input type="text" class="form-control" id="name-{{ $fruits->id }}" name="name"
+                                                                        value="{{ $fruits->name }}" required>
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <label for="description-{{ $fruits->id }}" class="form-label">Description</label>
+                                                                    <textarea class="form-control" id="description-{{ $fruits->id }}" name="description" rows="3"
+                                                                        >{{ $fruits->description }}</textarea>
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <label for="location-{{ $fruits->id }}" class="form-label">Location</label>
+                                                                    <input type="text" class="form-control" id="location-{{ $fruits->id }}" name="location"
+                                                                        value="{{ $fruits->location }}" required>
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <label for="best_time_to_plant-{{ $fruits->id }}" class="form-label">Best Time to Plant</label>
+                                                                    <input type="text" class="form-control" id="best_time_to_plant-{{ $fruits->id }}" name="best_time_to_plant"
+                                                                        value="{{ is_array(json_decode($fruits->best_time_to_plant)) ? implode(',', json_decode($fruits->best_time_to_plant)) : '' }}" required>
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <label for="best_time_to_harvest-{{ $fruits->id }}" class="form-label">Best Time to Harvest</label>
+                                                                    <input type="text" class="form-control" id="best_time_to_harvest-{{ $fruits->id }}" name="best_time_to_harvest"
+                                                                        value="{{ is_array(json_decode($fruits->best_time_to_harvest)) ? implode(',', json_decode($fruits->best_time_to_harvest)) : '' }}" required>
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <label for="image-{{ $fruits->id }}" class="form-label">Image</label>
+                                                                    <input type="file" class="form-control" id="image-{{ $fruits->id }}" name="image">
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                                <button type="submit" class="btn btn-primary">Save changes</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         @endforeach
                                     </div>
                                 </div>
                             </div>
-
-                            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
                         </div>
                     </div>
                 </div>
